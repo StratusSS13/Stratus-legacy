@@ -238,12 +238,12 @@
 		return ..()
 
 	..()
-	
+
 /obj/item/clothing/suit/space/rig/proc/can_modify(mob/living/user)
 	if(isliving(loc))
 		to_chat(user, "<span class='info'>You can not modify the hardsuit while it is being worn.</span>")
 		return 0
-		
+
 	return 1
 
 //Engineering rig
@@ -290,14 +290,14 @@
 	item_state = "mining_helm"
 	item_color = "mining"
 	flags = HEADCOVERSEYES | BLOCKHAIR | HEADCOVERSMOUTH | STOPSPRESSUREDMAGE
-	armor = list(melee = 30, bullet = 5, laser = 10, energy = 5, bomb = 50, bio = 100, rad = 50)
+	armor = list(melee = 40, bullet = 5, laser = 10, energy = 5, bomb = 50, bio = 100, rad = 50)
 
 /obj/item/clothing/suit/space/rig/mining
 	icon_state = "rig-mining"
 	name = "mining hardsuit"
 	desc = "A special suit that protects against hazardous, low pressure environments. Has reinforced plating."
 	item_state = "mining_hardsuit"
-	armor = list(melee = 30, bullet = 5, laser = 10, energy = 5, bomb = 50, bio = 100, rad = 50)
+	armor = list(melee = 40, bullet = 5, laser = 10, energy = 5, bomb = 50, bio = 100, rad = 50)
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/weapon/storage/bag/ore,/obj/item/weapon/pickaxe)
 
 
@@ -308,7 +308,7 @@
 	icon_state = "rig1-syndi"
 	item_state = "syndie_helm"
 	item_color = "syndi"
-	armor = list(melee = 40, bullet = 50, laser = 30, energy = 15, bomb = 35, bio = 100, rad = 50)
+	armor = list(melee = 60, bullet = 50, laser = 30, energy = 15, bomb = 35, bio = 100, rad = 50)
 	on = 1
 	flags = HEADCOVERSEYES | BLOCKHAIR | HEADCOVERSMOUTH | STOPSPRESSUREDMAGE | THICKMATERIAL
 	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
@@ -352,7 +352,7 @@
 	w_class = 3
 	var/on = 1
 	actions_types = list(/datum/action/item_action/toggle_hardsuit_mode)
-	armor = list(melee = 40, bullet = 50, laser = 30, energy = 15, bomb = 35, bio = 100, rad = 50)
+	armor = list(melee = 60, bullet = 50, laser = 30, energy = 15, bomb = 35, bio = 100, rad = 50)
 	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_box,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword/saber,/obj/item/weapon/restraints/handcuffs,/obj/item/weapon/tank)
 
 /obj/item/clothing/suit/space/rig/syndi/update_icon()
@@ -392,7 +392,7 @@
 	desc = "An elite version of the syndicate helmet, with improved armour and fire shielding. It is in travel mode. Property of Gorlex Marauders."
 	icon_state = "rig0-syndielite"
 	item_color = "syndielite"
-	armor = list(melee = 60, bullet = 60, laser = 50, energy = 25, bomb = 55, bio = 100, rad = 70)
+	armor = list(melee = 80, bullet = 70, laser = 50, energy = 25, bomb = 55, bio = 100, rad = 70)
 	heat_protection = HEAD
 	max_heat_protection_temperature = FIRE_IMMUNITY_SUIT_MAX_TEMP_PROTECT
 	sprite_sheets = null
@@ -411,7 +411,7 @@
 	desc = "An elite version of the syndicate hardsuit, with improved armour and fire shielding. It is in travel mode."
 	icon_state = "rig0-syndielite"
 	item_color = "syndielite"
-	armor = list(melee = 60, bullet = 60, laser = 50, energy = 25, bomb = 55, bio = 100, rad = 70)
+	armor = list(melee = 80, bullet = 70, laser = 50, energy = 25, bomb = 55, bio = 100, rad = 70)
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = FIRE_IMMUNITY_SUIT_MAX_TEMP_PROTECT
 	sprite_sheets = null
@@ -475,7 +475,7 @@
 
 	//Security
 /obj/item/clothing/head/helmet/space/rig/security
-	name = "security hardsuit helmet"
+	name = "\improper NTSF hardsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, low pressure environment. Has an additional layer of armor."
 	icon_state = "rig0-sec"
 	item_state = "sec_helm"
@@ -484,7 +484,7 @@
 
 /obj/item/clothing/suit/space/rig/security
 	icon_state = "rig-sec"
-	name = "security hardsuit"
+	name = "\improper NTSF hardsuit"
 	desc = "A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor."
 	item_state = "sec_hardsuit"
 	armor = list(melee = 30, bullet = 15, laser = 30, energy = 10, bomb = 10, bio = 100, rad = 50)
@@ -530,7 +530,7 @@
 
 
 /obj/item/clothing/head/helmet/space/rig/security/hos
-	name = "head of security's hardsuit helmet"
+	name = "\improper NTSF commander's hardsuit helmet"
 	desc = "a special bulky helmet designed for work in a hazardous, low pressure environment. Has an additional layer of armor."
 	icon_state = "rig0-hos"
 	item_color = "hos"
@@ -540,7 +540,7 @@
 
 /obj/item/clothing/suit/space/rig/security/hos
 	icon_state = "rig-hos"
-	name = "head of security's hardsuit"
+	name = "\improper NTSF commander's hardsuit"
 	desc = "A special bulky suit that protects against hazardous, low pressure environments. Has an additional layer of armor."
 	armor = list(melee = 45, bullet = 25, laser = 30, energy = 10, bomb = 25, bio = 100, rad = 50)
 	sprite_sheets = null
