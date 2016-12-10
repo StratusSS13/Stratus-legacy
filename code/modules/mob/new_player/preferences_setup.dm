@@ -291,11 +291,20 @@
 	if(current_species && (current_species.bodyflags & HAS_TAIL))
 		var/tail_icon
 		var/tail_icon_state
+		var/tail_shift_x
+		var/tail_shift_y
+		var/blend_mode = ICON_ADD
 
 		if(body_accessory)
 			var/datum/body_accessory/accessory = body_accessory_by_name[body_accessory]
 			tail_icon = accessory.icon
 			tail_icon_state = accessory.icon_state
+			if(accessory.blend_mode)
+				blend_mode = accessory.blend_mode
+			if(accessory.pixel_x_offset)
+				tail_shift_x = accessory.pixel_x_offset
+			if(accessory.pixel_y_offset)
+				tail_shift_y = accessory.pixel_y_offset
 		else
 			tail_icon = "icons/effects/species.dmi"
 			if(coloured_tail)
@@ -303,10 +312,14 @@
 			else
 				tail_icon_state = "[current_species.tail]_s"
 
-		var/icon/temp = new /icon("icon" = tail_icon, "icon_state" = tail_icon_state)
+		var/icon/temp = new/icon("icon" = tail_icon, "icon_state" = tail_icon_state)
+		if(tail_shift_x)
+			temp.Shift(EAST, tail_shift_x)
+		if(tail_shift_y)
+			temp.Shift(NORTH, tail_shift_y)
 
 		if(current_species && (current_species.bodyflags & HAS_SKIN_COLOR))
-			temp.Blend(rgb(r_skin, g_skin, b_skin), ICON_ADD)
+			temp.Blend(rgb(r_skin, g_skin, b_skin), blend_mode)
 
 		if(current_species && (current_species.bodyflags & HAS_TAIL_MARKINGS))
 			var/tail_marking = m_styles["tail"]
@@ -724,7 +737,7 @@
 						clothes_s.Blend(new /icon('icons/mob/back.dmi', "satchel-cap"), ICON_OVERLAY)
 					if(4)
 						clothes_s.Blend(new /icon('icons/mob/back.dmi', "satchel"), ICON_OVERLAY)
-			if(HOS)
+			if(COMMANDER)
 				clothes_s = new /icon(uniform_dmi, "hosred_s")
 				clothes_s.Blend(new /icon('icons/mob/feet.dmi', "jackboots"), ICON_UNDERLAY)
 				clothes_s.Blend(new /icon('icons/mob/hands.dmi', "bgloves"), ICON_UNDERLAY)
@@ -751,7 +764,7 @@
 						clothes_s.Blend(new /icon('icons/mob/back.dmi', "satchel-sec"), ICON_OVERLAY)
 					if(4)
 						clothes_s.Blend(new /icon('icons/mob/back.dmi', "satchel"), ICON_OVERLAY)
-			if(DETECTIVE)
+			if(INVESTIGATOR)
 				clothes_s = new /icon(uniform_dmi, "detective_s")
 				clothes_s.Blend(new /icon('icons/mob/feet.dmi', "brown"), ICON_UNDERLAY)
 				clothes_s.Blend(new /icon('icons/mob/hands.dmi', "bgloves"), ICON_UNDERLAY)
