@@ -137,7 +137,7 @@ var/list/security_positions = list(
 
 
 var/list/civilian_positions = list(
-	"Civilian"
+	"Intern"
 )
 
 var/list/nonhuman_positions = list(

@@ -547,7 +547,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 	metadata["[tweak]"] = new_metadata
 
 
-/datum/preferences/proc/SetChoices(mob/user, limit = 12, list/splitJobs = list("Civilian","Research Director","AI","Bartender"), width = 760, height = 790)
+/datum/preferences/proc/SetChoices(mob/user, limit = 12, list/splitJobs = list("Intern","Research Director","AI","Bartender"), width = 760, height = 790)
 	if(!job_master)
 		return
 
@@ -598,7 +598,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 			var/available_in_days = job.available_in_days(user.client)
 			HTML += "<del>[rank]</del></td><td> \[IN [(available_in_days)] DAYS]</td></tr>"
 			continue
-		if((job_support_low & CIVILIAN) && (rank != "Civilian"))
+		if((job_support_low & CIVILIAN) && (rank != "Intern"))
 			HTML += "<font color=orange>[rank]</font></td><td></td></tr>"
 			continue
 		if((rank in command_positions) || (rank == "AI"))//Bold head jobs
@@ -639,7 +639,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 
 //			HTML += "<a href='?_src_=prefs;preference=job;task=input;text=[rank]'>"
 
-		if(rank == "Civilian")//Civilian is special
+		if(rank == "Intern")//Intern is special
 			if(job_support_low & CIVILIAN)
 				HTML += " <font color=green>\[Yes]</font></a>"
 			else
@@ -779,7 +779,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 		ShowChoices(user)
 		return
 
-	if(role == "Civilian")
+	if(role == "Intern")
 		if(job_support_low & job.flag)
 			job_support_low &= ~job.flag
 		else
@@ -878,7 +878,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 		ShowChoices(user)
 		return
 
-	if(role == "Civilian")
+	if(role == "Intern")
 		if(job_support_low & job.flag)
 			job_support_low &= ~job.flag
 		else

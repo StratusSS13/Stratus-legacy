@@ -315,7 +315,7 @@
 
 /mob/living/carbon/human/interactive/proc/setup_job(thejob)
 	switch(thejob)
-		if("Civilian")
+		if("Intern")
 			favoured_types = list(/obj/item/clothing, /obj/item/weapon)
 		if("Captain", "Head of Personnel")
 			favoured_types = list(/obj/item/clothing, /obj/item/weapon/stamp/captain,/obj/item/weapon/disk/nuclear)
@@ -855,7 +855,7 @@
 /mob/living/carbon/human/interactive/proc/job2area(target)
 	var/datum/job/T = target
 	switch(T.title)
-		if("Civilian", "Paramedic")
+		if("Intern", "Paramedic")
 			return /area/hallway/primary
 		if("Captain", "Head of Personnel", "Blueshield")
 			return /area/bridge

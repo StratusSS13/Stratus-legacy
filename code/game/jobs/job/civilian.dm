@@ -1,5 +1,5 @@
 /datum/job/civilian
-	title = "Civilian"
+	title = "Intern"
 	flag = CIVILIAN
 	department_flag = SUPPORT
 	total_positions = -1
@@ -8,7 +8,7 @@
 	selection_color = "#dddddd"
 	access = list()			//See /datum/job/assistant/get_access()
 	minimal_access = list()	//See /datum/job/assistant/get_access()
-	alt_titles = list("Tourist","Businessman","Trader","Assistant")
+	alt_titles = list("Tourist", "Visitor", "Trader")
 
 /datum/job/civilian/equip(var/mob/living/carbon/human/H)
 	if(!H)	return 0
