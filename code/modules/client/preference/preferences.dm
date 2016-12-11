@@ -55,7 +55,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 
 //used for alternate_option
 #define GET_RANDOM_JOB 0
-#define BE_CIVILIAN 1
+#define BE_INTERN 1
 #define RETURN_TO_LOBBY 2
 
 #define MAX_SAVE_SLOTS 20 // Save slots for regular players
@@ -598,7 +598,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 			var/available_in_days = job.available_in_days(user.client)
 			HTML += "<del>[rank]</del></td><td> \[IN [(available_in_days)] DAYS]</td></tr>"
 			continue
-		if((job_support_low & CIVILIAN) && (rank != "Intern"))
+		if((job_support_low & INTERN) && (rank != "Intern"))
 			HTML += "<font color=orange>[rank]</font></td><td></td></tr>"
 			continue
 		if((rank in command_positions) || (rank == "AI"))//Bold head jobs
@@ -640,7 +640,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 //			HTML += "<a href='?_src_=prefs;preference=job;task=input;text=[rank]'>"
 
 		if(rank == "Intern")//Intern is special
-			if(job_support_low & CIVILIAN)
+			if(job_support_low & INTERN)
 				HTML += " <font color=green>\[Yes]</font></a>"
 			else
 				HTML += " <font color=red>\[No]</font></a>"
@@ -676,7 +676,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 	switch(alternate_option)
 		if(GET_RANDOM_JOB)
 			HTML += "<center><br><u><a href='?_src_=prefs;preference=job;task=random'><font color=white>Get random job if preferences unavailable</font></a></u></center><br>"
-		if(BE_CIVILIAN)
+		if(BE_INTERN)
 			HTML += "<center><br><u><a href='?_src_=prefs;preference=job;task=random'><font color=white>Be a civilian if preferences unavailable</font></a></u></center><br>"
 		if(RETURN_TO_LOBBY)
 			HTML += "<center><br><u><a href='?_src_=prefs;preference=job;task=random'><font color=white>Return to lobby if preferences unavailable</font></a></u></center><br>"
@@ -1027,7 +1027,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 				ResetJobs()
 				SetChoices(user)
 			if("random")
-				if(alternate_option == GET_RANDOM_JOB || alternate_option == BE_CIVILIAN)
+				if(alternate_option == GET_RANDOM_JOB || alternate_option == BE_INTERN)
 					alternate_option += 1
 				else if(alternate_option == RETURN_TO_LOBBY)
 					alternate_option = 0

@@ -51,7 +51,7 @@
 	var/obj/item/other_hand
 	var/TRAITS = 0
 	var/obj/item/weapon/card/id/Path_ID
-	var/default_job = /datum/job/civilian	// the type for the default job
+	var/default_job = /datum/job/intern	// the type for the default job
 	var/datum/job/myjob
 	var/list/myPath = list()
 	faction = list("synth")
