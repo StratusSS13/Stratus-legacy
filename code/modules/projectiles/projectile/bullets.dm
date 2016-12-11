@@ -133,8 +133,8 @@
 
 /obj/item/projectile/bullet/rpellet
 	name = "rubber pellet"
-	damage = 3
-	stamina = 25
+	damage = 1.5
+	stamina = 19
 
 /obj/item/projectile/bullet/stunshot//taser slugs for shotguns, nothing special
 	name = "stunshot"
