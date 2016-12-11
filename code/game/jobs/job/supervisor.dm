@@ -84,6 +84,10 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 		H.equip_or_collect(new /obj/item/weapon/storage/box/ids(H), slot_in_backpack)
 		H.equip_or_collect(new /obj/item/weapon/melee/classic_baton/telescopic(H), slot_in_backpack)
 		H.equip_or_collect(new /obj/item/weapon/storage/box/survival(H), slot_in_backpack)
+		var/obj/item/weapon/implant/loyalty/L = new/obj/item/weapon/implant/loyalty(H)
+		L.imp_in = H
+		L.implanted = 1
+		H.sec_hud_set_implants()
 		return 1
 
 
