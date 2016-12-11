@@ -2,7 +2,7 @@
 	name = "traitor+vampire"
 	config_tag = "traitorvamp"
 	traitors_possible = 3 //hard limit on traitors if scaling is turned off
-	protected_jobs = list("NTSF Officer", "NTSF Warden", "NTSF Investigator", "NTSF Commander", "Captain", "Blueshield", "Nanotrasen Representative", "NTSF Pilot", "Magistrate", "NTSF Medic", "Internal Affairs Agent", "Nanotrasen Navy Officer", "Special Operations Officer")
+	protected_jobs = list("Head of Personnel", "Chief Engineer", "Research Director", "Chief Medical Officer", "NTSF Officer", "NTSF Warden", "NTSF Investigator", "NTSF Commander", "Captain", "Blueshield", "Nanotrasen Representative", "NTSF Pilot", "Magistrate", "NTSF Medic", "Internal Affairs Agent", "Nanotrasen Navy Officer", "Special Operations Officer")
 	required_players = 10
 	required_enemies = 1	// how many of each type are required
 	recommended_enemies = 3
