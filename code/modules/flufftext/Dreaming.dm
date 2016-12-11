@@ -11,7 +11,7 @@ mob/living/carbon/proc/dream()
 		"the detective","the warden","a member of the internal affairs","a station engineer","the janitor","atmospheric technician",
 		"the quartermaster","a cargo technician","the botanist","a shaft miner","the psychologist","the chemist","the geneticist",
 		"the virologist","the roboticist","the chef","the bartender","the chaplain","the librarian", "the brig physician", "the pod pilot",
-		"the barber", "the mechanic", "the magistrate", "the nanotrasen representative", "the blueshield", "a mouse","an ert member",
+		"the barber", "the mechanic", "the nanotrasen representative", "the blueshield", "a mouse","an ert member",
 		"a beach","the holodeck","a smokey room","a voice","the cold","a mouse","an operating table","the bar","the rain","a skrell",
 		"a unathi","a tajaran", "a vulpkanin", "a slime", "an ipc", "a vox", "a plasmaman", "a grey", "a kidan", "a diona", "the ai core",
 		"the mining station","the research station", "a beaker of strange liquid"

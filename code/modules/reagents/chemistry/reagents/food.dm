@@ -270,7 +270,7 @@
 	color = "#FF00FF" // rgb: 255, 0, 255
 
 /datum/reagent/consumable/sprinkles/on_mob_life(mob/living/M)
-	if(ishuman(M) && M.job in list("Security Officer", "Security Pod Pilot", "Detective", "Warden", "Head of Security", "Brig Physician", "Internal Affairs Agent", "Magistrate"))
+	if(ishuman(M) && M.job in list("Security Officer", "Security Pod Pilot", "Detective", "Warden", "Head of Security", "Brig Physician", "Internal Affairs Agent"))
 		M.adjustBruteLoss(-1)
 		M.adjustFireLoss(-1)
 	..()

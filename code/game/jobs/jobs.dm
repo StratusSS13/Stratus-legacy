@@ -52,7 +52,6 @@ var/const/BLUESHIELD		=(1<<1)
 var/const/BARBER			=(1<<3)
 var/const/MECHANIC			=(1<<4)
 var/const/BRIGDOC			=(1<<5)
-var/const/JUDGE				=(1<<6)
 var/const/PILOT				=(1<<7)
 
 var/list/assistant_occupations = list(
@@ -111,7 +110,6 @@ var/list/support_positions = list(
 	"Clown",
 	"Mime",
 	"Barber",
-	"Magistrate",
 	"Nanotrasen Representative",
 	"Blueshield"
 )
@@ -153,7 +151,6 @@ var/list/whitelisted_positions = list(
 	"Barber",
 	"Mechanic",
 	"NTSF Medic",
-	"Magistrate",
 	"Security Pod Pilot",
 )
 
