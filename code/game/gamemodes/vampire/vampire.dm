@@ -10,7 +10,7 @@
 	config_tag = "vampire"
 	restricted_jobs = list("AI", "Cyborg")
 	protected_species = list("Machine", "Plasmaman")
-	protected_jobs = list("Chaplain", "NTSF Officer", "NTSF Warden", "NTSF Investigator", "NTSF Commander", "Captain", "Blueshield", "Nanotrasen Representative", "NTSF Pilot", "Magistrate", "NTSF Medic", "Internal Affairs Agent", "Nanotrasen Navy Officer", "Special Operations Officer")
+	protected_jobs = list("Chaplain", "NTSF Officer", "NTSF Warden", "NTSF Investigator", "NTSF Commander", "Captain", "Blueshield", "Nanotrasen Representative", "NTSF Pilot", "NTSF Medic", "Internal Affairs Agent", "Nanotrasen Navy Officer", "Special Operations Officer")
 	required_players = 15
 	required_enemies = 1
 	recommended_enemies = 4

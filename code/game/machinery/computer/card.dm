@@ -29,7 +29,6 @@ var/time_last_changed_position = 0
 		/datum/job/chief_engineer,
 		/datum/job/rd,
 		/datum/job/cmo,
-		/datum/job/judge,
 		/datum/job/blueshield,
 		/datum/job/nanotrasenrep,
 		/datum/job/pilot,

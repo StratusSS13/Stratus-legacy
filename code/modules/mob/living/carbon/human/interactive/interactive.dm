@@ -322,7 +322,7 @@
 		if("Nanotrasen Representative")
 			favoured_types = list(/obj/item/clothing, /obj/item/weapon/stamp/centcom, /obj/item/weapon/paper, /obj/item/weapon/melee/classic_baton/ntcane)
 			functions += "paperwork"
-		if("Magistrate", "Internal Affairs Agent")
+		if("Internal Affairs Agent")
 			favoured_types = list(/obj/item/clothing, /obj/item/weapon/stamp/law, /obj/item/weapon/paper)
 			functions += "paperwork"
 		if("Quartermaster", "Cargo Technician")
@@ -875,7 +875,7 @@
 			return /area/toxins
 		if("Roboticist")
 			return /area/assembly/robotics
-		if("NTSF Commander", "NTSF Warden", "NTSF Officer", "NTSF Officer", "NTSF Pilot", "NTSF Medic", "Magistrate", "Internal Affairs Agent")
+		if("NTSF Commander", "NTSF Warden", "NTSF Officer", "NTSF Officer", "NTSF Pilot", "NTSF Medic", "Internal Affairs Agent")
 			return /area/security
 		if("Botanist")
 			return /area/hydroponics

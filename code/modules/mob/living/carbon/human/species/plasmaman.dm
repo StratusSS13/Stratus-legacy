@@ -67,9 +67,6 @@
 			suit=/obj/item/clothing/suit/space/eva/plasmaman/security/
 			helm=/obj/item/clothing/head/helmet/space/eva/plasmaman/security/
 			H.equip_or_collect(new /obj/item/weapon/gun/energy/gun/advtaser(H), slot_in_backpack)
-		if("Magistrate")
-			suit=/obj/item/clothing/suit/space/eva/plasmaman/magistrate
-			helm=/obj/item/clothing/head/helmet/space/eva/plasmaman/magistrate
 		if("Head of Security")
 			suit=/obj/item/clothing/suit/space/eva/plasmaman/security/hos
 			helm=/obj/item/clothing/head/helmet/space/eva/plasmaman/security/hos
