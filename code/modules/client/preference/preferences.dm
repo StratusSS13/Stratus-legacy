@@ -55,7 +55,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 
 //used for alternate_option
 #define GET_RANDOM_JOB 0
-#define BE_INTERN 1
+#define BE_VISITOR 1
 #define RETURN_TO_LOBBY 2
 
 #define MAX_SAVE_SLOTS 20 // Save slots for regular players
@@ -547,7 +547,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 	metadata["[tweak]"] = new_metadata
 
 
-/datum/preferences/proc/SetChoices(mob/user, limit = 12, list/splitJobs = list("Intern","Research Director","AI","Bartender"), width = 760, height = 790)
+/datum/preferences/proc/SetChoices(mob/user, limit = 12, list/splitJobs = list("Visitor","Research Director","AI","Bartender"), width = 760, height = 790)
 	if(!job_master)
 		return
 
@@ -598,7 +598,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 			var/available_in_days = job.available_in_days(user.client)
 			HTML += "<del>[rank]</del></td><td> \[IN [(available_in_days)] DAYS]</td></tr>"
 			continue
-		if((job_support_low & INTERN) && (rank != "Intern"))
+		if((job_support_low & VISITOR) && (rank != "Visitor"))
 			HTML += "<font color=orange>[rank]</font></td><td></td></tr>"
 			continue
 		if((rank in command_positions) || (rank == "AI"))//Bold head jobs
@@ -639,8 +639,8 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 
 //			HTML += "<a href='?_src_=prefs;preference=job;task=input;text=[rank]'>"
 
-		if(rank == "Intern")//Intern is special
-			if(job_support_low & INTERN)
+		if(rank == "Visitor")//Visitor is special
+			if(job_support_low & VISITOR)
 				HTML += " <font color=green>\[Yes]</font></a>"
 			else
 				HTML += " <font color=red>\[No]</font></a>"
@@ -676,7 +676,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 	switch(alternate_option)
 		if(GET_RANDOM_JOB)
 			HTML += "<center><br><u><a href='?_src_=prefs;preference=job;task=random'><font color=white>Get random job if preferences unavailable</font></a></u></center><br>"
-		if(BE_INTERN)
+		if(BE_VISITOR)
 			HTML += "<center><br><u><a href='?_src_=prefs;preference=job;task=random'><font color=white>Be a civilian if preferences unavailable</font></a></u></center><br>"
 		if(RETURN_TO_LOBBY)
 			HTML += "<center><br><u><a href='?_src_=prefs;preference=job;task=random'><font color=white>Return to lobby if preferences unavailable</font></a></u></center><br>"
@@ -779,7 +779,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 		ShowChoices(user)
 		return
 
-	if(role == "Intern")
+	if(role == "Visitor")
 		if(job_support_low & job.flag)
 			job_support_low &= ~job.flag
 		else
@@ -878,7 +878,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 		ShowChoices(user)
 		return
 
-	if(role == "Intern")
+	if(role == "Visitor")
 		if(job_support_low & job.flag)
 			job_support_low &= ~job.flag
 		else
@@ -1027,7 +1027,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 				ResetJobs()
 				SetChoices(user)
 			if("random")
-				if(alternate_option == GET_RANDOM_JOB || alternate_option == BE_INTERN)
+				if(alternate_option == GET_RANDOM_JOB || alternate_option == BE_VISITOR)
 					alternate_option += 1
 				else if(alternate_option == RETURN_TO_LOBBY)
 					alternate_option = 0

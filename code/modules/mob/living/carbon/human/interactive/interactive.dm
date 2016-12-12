@@ -51,7 +51,7 @@
 	var/obj/item/other_hand
 	var/TRAITS = 0
 	var/obj/item/weapon/card/id/Path_ID
-	var/default_job = /datum/job/intern	// the type for the default job
+	var/default_job = /datum/job/visitor	// the type for the default job
 	var/datum/job/myjob
 	var/list/myPath = list()
 	faction = list("synth")
@@ -315,14 +315,14 @@
 
 /mob/living/carbon/human/interactive/proc/setup_job(thejob)
 	switch(thejob)
-		if("Intern")
+		if("Visitor")
 			favoured_types = list(/obj/item/clothing, /obj/item/weapon)
 		if("Captain", "Head of Personnel")
 			favoured_types = list(/obj/item/clothing, /obj/item/weapon/stamp/captain,/obj/item/weapon/disk/nuclear)
 		if("Nanotrasen Representative")
 			favoured_types = list(/obj/item/clothing, /obj/item/weapon/stamp/centcom, /obj/item/weapon/paper, /obj/item/weapon/melee/classic_baton/ntcane)
 			functions += "paperwork"
-		if("Magistrate", "Internal Affairs Agent")
+		if("Internal Affairs Agent")
 			favoured_types = list(/obj/item/clothing, /obj/item/weapon/stamp/law, /obj/item/weapon/paper)
 			functions += "paperwork"
 		if("Quartermaster", "Cargo Technician")
@@ -855,7 +855,7 @@
 /mob/living/carbon/human/interactive/proc/job2area(target)
 	var/datum/job/T = target
 	switch(T.title)
-		if("Intern", "Paramedic")
+		if("Visitor", "Paramedic")
 			return /area/hallway/primary
 		if("Captain", "Head of Personnel", "Blueshield")
 			return /area/bridge
@@ -875,7 +875,7 @@
 			return /area/toxins
 		if("Roboticist")
 			return /area/assembly/robotics
-		if("NTSF Commander", "NTSF Warden", "NTSF Officer", "NTSF Officer", "NTSF Pilot", "NTSF Medic", "Magistrate", "Internal Affairs Agent")
+		if("NTSF Commander", "NTSF Warden", "NTSF Officer", "NTSF Officer", "NTSF Pilot", "NTSF Medic", "Internal Affairs Agent")
 			return /area/security
 		if("Botanist")
 			return /area/hydroponics

@@ -1136,7 +1136,7 @@
 				<h1><a name="Contents">Contents</a></h1>
 				<ol>
 					<li><a href="#Forward">A forward on using EVA gear</a></li>
-					<li><a href="#Intern">Donning a Intern Suits</a></li>
+					<li><a href="#Visitor">Donning a Visitor Suits</a></li>
 					<li><a href="#Hardsuit">Putting on a Hardsuit</a></li>
 					<li><a href="#Final">Final Checks</a></li>
 				</ol>
@@ -1147,9 +1147,9 @@
 
 				EVA gear. Wonderful to use. It's useful for mining, engineering, and occasionally just surviving, if things are that bad. Most people have EVA training,
 				but apparently there are some on a space station who don't. This guide should give you a basic idea of how to use this gear, safely. It's split into two sections:
-				 Intern suits and hardsuits.<BR><BR>
+				 Visitor suits and hardsuits.<BR><BR>
 
-				<h1><a name="Intern">Intern Suits</a></h1><BR>
+				<h1><a name="Visitor">Visitor Suits</a></h1><BR>
 				<I>The bulkiest things this side of Alpha Centauri</I><BR>
 				These suits are the grey ones that are stored in EVA. They're the more simple to get on, but are also a lot bulkier, and provide less protection from environmental hazards such as radiaion or physical impact.
 				As Medical, Engineering, Security, and Mining all have hardsuits of their own, these don't see much use, but knowing how to put them on is quite useful anyways.<BR><BR>
@@ -1672,7 +1672,7 @@
                 <h1><a name="mech"><B>Mechanic</B></a></h1><BR>
 				<ol>
 					<li>The Mechanic is not permitted to fit any weaponry onto constructed Space Pods without express permission by the Head of Security;</li>
-                    <li>The Mechanic is permitted to construct Space Pods for any crewmember that requests one, provided the Pods do not have any weaponry. Anyone possessing a Pod is to follow Mechanic SOP, Interns included;</li>
+                    <li>The Mechanic is permitted to construct Space Pods for any crewmember that requests one, provided the Pods do not have any weaponry. Anyone possessing a Pod is to follow Mechanic SOP, Visitors included;</li>
                     <li>The Mechanic is not permitted to enter the Security Pod Bay, unless the Security Pod Pilot or Head of Security permit it;</li>
                     <li>The Mechanic is not permitted to bring any Space Pod into the actual station</li>
 				</ol>
