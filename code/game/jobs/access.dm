@@ -304,7 +304,7 @@ var/const/access_trade_sol = 160
 		if(access_cargo_bot)
 			return "Cargo Bot Delivery"
 		if(access_security)
-			return "NTSF"
+			return "Security"
 		if(access_brig)
 			return "Holding Cells"
 		if(access_court)
