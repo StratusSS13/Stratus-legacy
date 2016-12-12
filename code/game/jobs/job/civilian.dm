@@ -6,8 +6,8 @@
 	spawn_positions = -1
 	supervisors = "the head of personnel"
 	selection_color = "#dddddd"
-	access = list()			//See /datum/job/assistant/get_access()
-	minimal_access = list()	//See /datum/job/assistant/get_access()
+	access = list()			//See /datum/job/visitor/get_access()
+	minimal_access = list()	//See /datum/job/visitor/get_access()
 
 /datum/job/visitor/equip(var/mob/living/carbon/human/H)
 	if(!H)	return 0

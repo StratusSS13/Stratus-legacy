@@ -677,7 +677,7 @@ var/global/list/special_role_times = list( //minimum age (in days) for accounts 
 		if(GET_RANDOM_JOB)
 			HTML += "<center><br><u><a href='?_src_=prefs;preference=job;task=random'><font color=white>Get random job if preferences unavailable</font></a></u></center><br>"
 		if(BE_VISITOR)
-			HTML += "<center><br><u><a href='?_src_=prefs;preference=job;task=random'><font color=white>Be a civilian if preferences unavailable</font></a></u></center><br>"
+			HTML += "<center><br><u><a href='?_src_=prefs;preference=job;task=random'><font color=white>Be a visitor if preferences unavailable</font></a></u></center><br>"
 		if(RETURN_TO_LOBBY)
 			HTML += "<center><br><u><a href='?_src_=prefs;preference=job;task=random'><font color=white>Return to lobby if preferences unavailable</font></a></u></center><br>"
 
