@@ -50,7 +50,7 @@ var/const/KARMA				=(1<<3)
 var/const/NANO				=(1<<0)
 var/const/BLUESHIELD		=(1<<1)
 var/const/BARBER			=(1<<3)
-var/const/MECHANIC			=(1<<4)
+var/const/EXPLORER			=(1<<4)
 var/const/BRIGDOC			=(1<<5)
 var/const/PILOT				=(1<<7)
 
@@ -72,7 +72,7 @@ var/list/engineering_positions = list(
 	"Chief Engineer",
 	"Station Engineer",
 	"Life Support Specialist",
-	"Mechanic"
+	"Explorer"
 )
 
 
@@ -149,7 +149,7 @@ var/list/whitelisted_positions = list(
 	"Blueshield",
 	"Nanotrasen Representative",
 	"Barber",
-	"Mechanic",
+	"Explorer",
 	"NTSF Medic",
 	"Security Pod Pilot",
 )

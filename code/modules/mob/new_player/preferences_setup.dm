@@ -855,7 +855,7 @@
 					clothes_s.Blend(new /icon('icons/mob/back.dmi', "satchel"), ICON_OVERLAY)
 	else if(job_karma_high)
 		switch(job_karma_high)
-			if(MECHANIC)
+			if(EXPLORER)
 				clothes_s = new /icon(uniform_dmi, "mechanic_s")
 				clothes_s.Blend(new /icon('icons/mob/feet.dmi', "orange"), ICON_UNDERLAY)
 				clothes_s.Blend(new /icon('icons/mob/belt.dmi', "utility"), ICON_OVERLAY)

@@ -139,7 +139,7 @@
 							to_chat(usr, "You do not have enough karma!")
 							return
 						else
-							src.DB_job_unlock("Mechanic",30)
+							src.DB_job_unlock("Explorer",30)
 							return
 					if("9")
 						if(karma <30)

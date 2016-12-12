@@ -102,9 +102,9 @@
 		H.equip_or_collect(new /obj/item/weapon/storage/box/engineer(H), slot_in_backpack)
 		return 1
 
-/datum/job/mechanic
-	title = "Mechanic"
-	flag = MECHANIC
+/datum/job/explorer
+	title = "Explorer"
+	flag = EXPLORER
 	department_flag = KARMA
 	total_positions = 1
 	spawn_positions = 1
