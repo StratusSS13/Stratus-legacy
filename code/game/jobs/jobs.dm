@@ -42,7 +42,7 @@ var/const/LAWYER			=(1<<9)
 var/const/CHAPLAIN			=(1<<10)
 var/const/CLOWN				=(1<<11)
 var/const/MIME				=(1<<12)
-var/const/CIVILIAN			=(1<<13)
+var/const/VISITOR			=(1<<13)
 
 
 var/const/KARMA				=(1<<3)
@@ -135,7 +135,7 @@ var/list/security_positions = list(
 
 
 var/list/civilian_positions = list(
-	"Civilian"
+	"Visitor"
 )
 
 var/list/nonhuman_positions = list(

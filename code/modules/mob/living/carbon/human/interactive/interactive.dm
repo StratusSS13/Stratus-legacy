@@ -51,7 +51,7 @@
 	var/obj/item/other_hand
 	var/TRAITS = 0
 	var/obj/item/weapon/card/id/Path_ID
-	var/default_job = /datum/job/civilian	// the type for the default job
+	var/default_job = /datum/job/visitor	// the type for the default job
 	var/datum/job/myjob
 	var/list/myPath = list()
 	faction = list("synth")
@@ -315,7 +315,7 @@
 
 /mob/living/carbon/human/interactive/proc/setup_job(thejob)
 	switch(thejob)
-		if("Civilian")
+		if("Visitor")
 			favoured_types = list(/obj/item/clothing, /obj/item/weapon)
 		if("Captain", "Head of Personnel")
 			favoured_types = list(/obj/item/clothing, /obj/item/weapon/stamp/captain,/obj/item/weapon/disk/nuclear)
@@ -855,7 +855,7 @@
 /mob/living/carbon/human/interactive/proc/job2area(target)
 	var/datum/job/T = target
 	switch(T.title)
-		if("Civilian", "Paramedic")
+		if("Visitor", "Paramedic")
 			return /area/hallway/primary
 		if("Captain", "Head of Personnel", "Blueshield")
 			return /area/bridge

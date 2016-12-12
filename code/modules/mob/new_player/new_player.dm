@@ -248,7 +248,7 @@
 	if(job.admin_only && !(check_rights(R_EVENT, 0))) return 0
 
 	if(config.assistantlimit)
-		if(job.title == "Civilian")
+		if(job.title == "Visitor")
 			var/count = 0
 			var/datum/job/officer = job_master.GetJob("NTSF Officer")
 			var/datum/job/warden = job_master.GetJob("NTSF Warden")

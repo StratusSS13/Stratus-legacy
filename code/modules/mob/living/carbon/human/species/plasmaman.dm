@@ -108,7 +108,7 @@
 		if("Janitor")
 			suit=/obj/item/clothing/suit/space/eva/plasmaman/janitor
 			helm=/obj/item/clothing/head/helmet/space/eva/plasmaman/janitor
-		if("Civilian", "Barber")
+		if("Visitor", "Barber")
 			suit=/obj/item/clothing/suit/space/eva/plasmaman/assistant
 			helm=/obj/item/clothing/head/helmet/space/eva/plasmaman/assistant
 		if("Clown")

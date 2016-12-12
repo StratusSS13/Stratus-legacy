@@ -38,7 +38,7 @@ var/time_last_changed_position = 0
 		/datum/job/chaplain,
 		/datum/job/ntnavyofficer,
 		/datum/job/ntspecops,
-		/datum/job/civilian
+		/datum/job/visitor
 	)
 
 	//The scaling factor of max total positions in relation to the total amount of people on board the station in %
