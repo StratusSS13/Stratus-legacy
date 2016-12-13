@@ -135,6 +135,8 @@
 	name = "rubber pellet"
 	damage = 1.5
 	stamina = 19
+	embed = 0
+	sharp = 0
 
 /obj/item/projectile/bullet/stunshot//taser slugs for shotguns, nothing special
 	name = "stunshot"
