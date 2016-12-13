@@ -67,9 +67,6 @@
 			suit=/obj/item/clothing/suit/space/eva/plasmaman/security/
 			helm=/obj/item/clothing/head/helmet/space/eva/plasmaman/security/
 			H.equip_or_collect(new /obj/item/weapon/gun/energy/gun/advtaser(H), slot_in_backpack)
-		if("Magistrate")
-			suit=/obj/item/clothing/suit/space/eva/plasmaman/magistrate
-			helm=/obj/item/clothing/head/helmet/space/eva/plasmaman/magistrate
 		if("Head of Security")
 			suit=/obj/item/clothing/suit/space/eva/plasmaman/security/hos
 			helm=/obj/item/clothing/head/helmet/space/eva/plasmaman/security/hos
@@ -111,7 +108,7 @@
 		if("Janitor")
 			suit=/obj/item/clothing/suit/space/eva/plasmaman/janitor
 			helm=/obj/item/clothing/head/helmet/space/eva/plasmaman/janitor
-		if("Civilian", "Barber")
+		if("Visitor", "Barber")
 			suit=/obj/item/clothing/suit/space/eva/plasmaman/assistant
 			helm=/obj/item/clothing/head/helmet/space/eva/plasmaman/assistant
 		if("Clown")
@@ -189,7 +186,7 @@
 			if(SA_pp > SA_para_min) // Enough to make us paralysed for a bit
 				H.Paralyse(3) // 3 gives them one second to wake up and run away a bit!
 				if(SA_pp > SA_sleep_min) // Enough to make us sleep as well
-					H.AdjustSleeping(2, bound_lower = 0, bound_upper = 10)
+					H.AdjustSleeping(8, bound_lower = 0, bound_upper = 10)
 			else if(SA_pp > 0.15)	// There is sleeping gas in their lungs, but only a little, so give them a bit of a warning
 				if(prob(20))
 					spawn(0)

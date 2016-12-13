@@ -2,9 +2,9 @@
 var/const/ENGSEC			=(1<<0)
 
 var/const/CAPTAIN			=(1<<0)
-var/const/HOS				=(1<<1)
+var/const/COMMANDER				=(1<<1)
 var/const/WARDEN			=(1<<2)
-var/const/DETECTIVE			=(1<<3)
+var/const/INVESTIGATOR			=(1<<3)
 var/const/OFFICER			=(1<<4)
 var/const/CHIEF				=(1<<5)
 var/const/ENGINEER			=(1<<6)
@@ -42,7 +42,7 @@ var/const/LAWYER			=(1<<9)
 var/const/CHAPLAIN			=(1<<10)
 var/const/CLOWN				=(1<<11)
 var/const/MIME				=(1<<12)
-var/const/CIVILIAN			=(1<<13)
+var/const/VISITOR			=(1<<13)
 
 
 var/const/KARMA				=(1<<3)
@@ -52,7 +52,6 @@ var/const/BLUESHIELD		=(1<<1)
 var/const/BARBER			=(1<<3)
 var/const/MECHANIC			=(1<<4)
 var/const/BRIGDOC			=(1<<5)
-var/const/JUDGE				=(1<<6)
 var/const/PILOT				=(1<<7)
 
 var/list/assistant_occupations = list(
@@ -62,7 +61,7 @@ var/list/assistant_occupations = list(
 var/list/command_positions = list(
 	"Captain",
 	"Head of Personnel",
-	"Head of Security",
+	"NTSF Commander",
 	"Chief Engineer",
 	"Research Director",
 	"Chief Medical Officer"
@@ -111,7 +110,6 @@ var/list/support_positions = list(
 	"Clown",
 	"Mime",
 	"Barber",
-	"Magistrate",
 	"Nanotrasen Representative",
 	"Blueshield"
 )
@@ -127,17 +125,17 @@ var/list/service_positions = support_positions - supply_positions + list("Head o
 
 
 var/list/security_positions = list(
-	"Head of Security",
-	"Warden",
-	"Detective",
-	"Security Officer",
-	"Brig Physician",
-	"Security Pod Pilot"
+	"NTSF Commander",
+	"NTSF Warden",
+	"NTSF Investigator",
+	"NTSF Officer",
+	"NTSF Medic",
+	"NTSF Pilot"
 )
 
 
 var/list/civilian_positions = list(
-	"Civilian"
+	"Visitor"
 )
 
 var/list/nonhuman_positions = list(
@@ -152,8 +150,7 @@ var/list/whitelisted_positions = list(
 	"Nanotrasen Representative",
 	"Barber",
 	"Mechanic",
-	"Brig Physician",
-	"Magistrate",
+	"NTSF Medic",
 	"Security Pod Pilot",
 )
 
@@ -182,4 +179,3 @@ var/list/whitelisted_positions = list(
 			titles = J.alt_titles
 
 	return titles
-

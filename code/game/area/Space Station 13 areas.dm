@@ -1198,10 +1198,6 @@ var/list/ghostteleportlocs = list()
 	name = "\improper Law Office"
 	icon_state = "law"
 
-/area/magistrateoffice
-	name = "\improper Magistrate's Office"
-	icon_state = "law"
-
 /area/clownoffice
 	name = "\improper Clown's Office"
 	icon_state = "dk_yellow"
@@ -1553,6 +1549,14 @@ var/list/ghostteleportlocs = list()
 /area/medical/surgery
 	name = "\improper Surgery"
 	icon_state = "surgery"
+
+/area/medical/surgery1
+	name = "\improper Surgery 1"
+	icon_state = "surgery1"
+
+/area/medical/surgery2
+	name = "\improper Surgery 2"
+	icon_state = "surgery2"
 
 /area/medical/surgeryobs
 	name = "\improper Surgery Observation"
@@ -2617,7 +2621,6 @@ var/list/the_station_areas = list (
 	/area/chapel,
 	/area/escapepodbay,
 	/area/lawoffice,
-	/area/magistrateoffice,
 	/area/clownoffice,
 	/area/mimeoffice,
 	/area/engine,

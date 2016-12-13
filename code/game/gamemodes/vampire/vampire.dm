@@ -9,8 +9,8 @@
 	name = "vampire"
 	config_tag = "vampire"
 	restricted_jobs = list("AI", "Cyborg")
-	protected_jobs = list("Head of Personnel", "Chief Engineer", "Research Director", "Chief Medical Officer", "Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Blueshield", "Nanotrasen Representative", "Security Pod Pilot", "Magistrate", "Chaplain", "Brig Physician", "Internal Affairs Agent", "Nanotrasen Navy Officer", "Special Operations Officer")
 	protected_species = list("Machine", "Plasmaman")
+	protected_jobs = list("Head of Personnel", "Chief Engineer", "Research Director", "Chief Medical Officer", "Chaplain", "NTSF Officer", "NTSF Warden", "NTSF Investigator", "NTSF Commander", "Captain", "Blueshield", "Nanotrasen Representative", "NTSF Pilot", "NTSF Medic", "Internal Affairs Agent", "Nanotrasen Navy Officer", "Special Operations Officer")
 	required_players = 15
 	required_enemies = 1
 	recommended_enemies = 4
@@ -242,6 +242,10 @@ You are weak to holy things and starlight. Don't go into space and avoid the Cha
 		owner.mind.spell_list.Remove(ability)
 		qdel(ability)
 
+/datum/vampire/proc/update_owner(var/mob/living/carbon/human/current) //Called when a vampire gets cloned. This updates vampire.owner to the new body.
+	if(current.mind && current.mind.vampire && current.mind.vampire.owner && (current.mind.vampire.owner != current))
+		current.mind.vampire.owner = current
+
 /mob/proc/make_vampire()
 	if(!mind)
 		return
@@ -325,7 +329,6 @@ You are weak to holy things and starlight. Don't go into space and avoid the Cha
 			else if(istype(p, /datum/vampire_passive))
 				var/datum/vampire_passive/power = p
 				to_chat(owner, "<span class='notice'>[power.gain_desc]</span>")
-
 
 /datum/game_mode/proc/remove_vampire(datum/mind/vampire_mind)
 	if(vampire_mind in vampires)

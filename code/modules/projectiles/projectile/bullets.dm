@@ -28,7 +28,7 @@
 		M.AdjustConfused(20)
 		M.AdjustEyeBlurry(20)
 		M.AdjustDrowsy(20)
-		for(var/datum/reagent/ethanol/A in M.reagents.reagent_list)
+		for(var/datum/reagent/consumable/ethanol/A in M.reagents.reagent_list)
 			M.AdjustParalysis(2)
 			M.AdjustDizzy(10)
 			M.AdjustSlur(10)
@@ -133,8 +133,8 @@
 
 /obj/item/projectile/bullet/rpellet
 	name = "rubber pellet"
-	damage = 3
-	stamina = 25
+	damage = 1.5
+	stamina = 19
 
 /obj/item/projectile/bullet/stunshot//taser slugs for shotguns, nothing special
 	name = "stunshot"

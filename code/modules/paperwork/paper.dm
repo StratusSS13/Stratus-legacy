@@ -8,6 +8,7 @@
 	gender = PLURAL
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "paper"
+	item_state = "paper"
 	throwforce = 0
 	w_class = 1
 	throw_range = 1
@@ -700,7 +701,7 @@
 					to_chat(H, "<span class='userdanger'>You feel surrounded by sadness. Sadness... and HONKS!</span>")
 					H.makeCluwne()
 			else if(myeffect == "Demotion Notice")
-				command_announcement.Announce("[mytarget] is hereby demoted to the rank of Civilian. Process this demotion immediately. Failure to comply with these orders is grounds for termination.","CC Demotion Order")
+				command_announcement.Announce("[mytarget] is hereby demoted to the rank of Visitor. Process this demotion immediately. Failure to comply with these orders is grounds for termination.","CC Demotion Order")
 			else
 				message_admins("Evil paper [src] was activated without a proper effect set! This is a bug.")
 		used = 1

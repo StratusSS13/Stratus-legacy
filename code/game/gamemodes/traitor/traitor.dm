@@ -11,7 +11,7 @@
 	name = "traitor"
 	config_tag = "traitor"
 	restricted_jobs = list("Cyborg")//They are part of the AI if he is traitor so are they, they use to get double chances
-	protected_jobs = list("Head of Personnel", "Chief Engineer", "Research Director", "Chief Medical Officer", "Security Officer", "Warden", "Detective", "Head of Security", "Internal Affairs Agent", "Captain", "Blueshield", "Nanotrasen Representative", "Security Pod Pilot", "Magistrate", "Internal Affairs Agent", "Brig Physician", "Nanotrasen Navy Officer", "Special Operations Officer")
+	protected_jobs = list("Head of Personnel", "Chief Engineer", "Research Director", "Chief Medical Officer", "NTSF Officer", "NTSF Warden", "NTSF Investigator", "NTSF Commander", "NTSF Medic", "Captain", "Blueshield", "Nanotrasen Representative", "NTSF Pilot", "Internal Affairs Agent", "Nanotrasen Navy Officer", "Special Operations Officer")
 	required_players = 0
 	required_enemies = 1
 	recommended_enemies = 4

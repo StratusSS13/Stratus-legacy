@@ -1597,11 +1597,11 @@
 			to_chat(usr, "This can only be used on instances of type /mob/living")
 			return
 
-		if(alert(src.owner, "Are you sure you wish to hit [key_name(M)] with Bluespace Artillery?",  "Confirm Firing?" , "Yes" , "No") != "Yes")
+		if(alert(owner, "Are you sure you wish to hit [key_name(M)] with Bluespace Artillery?",  "Confirm Firing?" , "Yes" , "No") != "Yes")
 			return
 
 		if(BSACooldown)
-			to_chat(src.owner, "Standby. Reload cycle in progress. Gunnery crews ready in five seconds!")
+			to_chat(owner, "Standby. Reload cycle in progress. Gunnery crews ready in five seconds!")
 			return
 
 		BSACooldown = 1
@@ -1609,28 +1609,23 @@
 			BSACooldown = 0
 
 		to_chat(M, "You've been hit by bluespace artillery!")
-		log_admin("[key_name(M)] has been hit by Bluespace Artillery fired by [key_name(src.owner)]")
-		message_admins("[key_name_admin(M)] has been hit by Bluespace Artillery fired by [key_name_admin(src.owner)]")
-
-		var/obj/effect/stop/S
-		S = new /obj/effect/stop
-		S.victim = M
-		S.loc = M.loc
-		spawn(20)
-			qdel(S)
+		log_admin("[key_name(M)] has been hit by Bluespace Artillery fired by [key_name(owner)]")
+		message_admins("[key_name_admin(M)] has been hit by Bluespace Artillery fired by [key_name_admin(owner)]")
 
 		var/turf/simulated/floor/T = get_turf(M)
 		if(istype(T))
-			if(prob(80))	T.break_tile_to_plating()
-			else			T.break_tile()
+			if(prob(80))
+				T.break_tile_to_plating()
+			else
+				T.break_tile()
 
-		if(M.health == 1)
+		if(M.health <= 1)
 			M.gib()
 		else
-			M.adjustBruteLoss( min( 99 , (M.health - 1) )    )
+			M.adjustBruteLoss(min(99,(M.health - 1)))
 			M.Stun(20)
 			M.Weaken(20)
-			M.stuttering = 20
+			M.Stuttering(20)
 
 	else if(href_list["CentcommReply"])
 		if(!check_rights(R_ADMIN))
@@ -1712,7 +1707,7 @@
 		P.name = "Central Command - paper"
 		var/stypes = list("Handle it yourselves!","Illegible fax","Fax not signed","Not Right Now","You are wasting our time", "Keep up the good work", "ERT Instructions")
 		var/stype = input(src.owner, "Which type of standard reply do you wish to send to [H]?","Choose your paperwork", "") as null|anything in stypes
-		var/tmsg = "<font face='Verdana' color='black'><center><img src = 'ntlogo.png'><BR><BR><BR><font size='4'><B>NanoTrasen Science Station Cyberiad</B></font><BR><BR><BR><font size='4'>NAS Trurl Communications Department Report</font></center><BR><BR>"
+		var/tmsg = "<font face='Verdana' color='black'><center><img src = 'ntlogo.png'><BR><BR><BR><font size='4'><B>NanoTrasen Deep Space Facility Stratus</B></font><BR><BR><BR><font size='4'>NAS Trurl Communications Department Report</font></center><BR><BR>"
 		if(stype == "Handle it yourselves!")
 			tmsg += "Greetings, esteemed crewmember. Your fax has been <B><I>DECLINED</I></B> automatically by NAS Trurl Fax Registration.<BR><BR>Please proceed in accordance with Standard Operating Procedure and/or Space Law. You are fully trained to handle this situation without Central Command intervention.<BR><BR><i><small>This is an automatic message.</small>"
 		else if(stype == "Illegible fax")
@@ -2491,18 +2486,20 @@
 				feedback_inc("admin_secrets_fun_used",1)
 				feedback_add_details("admin_secrets_fun_used","LO")
 				message_admins("[key_name_admin(usr)] has broke a lot of lights", 1)
-				lightsout(1,2)
+				var/datum/event/electrical_storm/E = new /datum/event/electrical_storm
+				E.lightsoutAmount = 2
 			if("blackout")
 				feedback_inc("admin_secrets_fun_used",1)
 				feedback_add_details("admin_secrets_fun_used","BO")
 				message_admins("[key_name_admin(usr)] broke all lights", 1)
-				lightsout(0,0)
+				for(var/obj/machinery/light/L in machines)
+					L.broken()
 			if("whiteout")
 				feedback_inc("admin_secrets_fun_used",1)
 				feedback_add_details("admin_secrets_fun_used","WO")
-				for(var/obj/machinery/light/L in world)
-					L.fix()
 				message_admins("[key_name_admin(usr)] fixed all lights", 1)
+				for(var/obj/machinery/light/L in machines)
+					L.fix()
 			if("floorlava")
 				feedback_inc("admin_secrets_fun_used", 1)
 				feedback_add_details("admin_secrets_fun_used", "LF")
