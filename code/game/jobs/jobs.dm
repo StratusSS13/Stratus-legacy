@@ -71,8 +71,7 @@ var/list/command_positions = list(
 var/list/engineering_positions = list(
 	"Chief Engineer",
 	"Station Engineer",
-	"Life Support Specialist",
-	"Explorer"
+	"Life Support Specialist"
 )
 
 
@@ -111,7 +110,8 @@ var/list/support_positions = list(
 	"Mime",
 	"Barber",
 	"Nanotrasen Representative",
-	"Blueshield"
+	"Blueshield",
+	"Explorer"
 )
 
 var/list/supply_positions = list(
