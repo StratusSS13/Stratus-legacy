@@ -118,7 +118,7 @@
 		if(affected)
 			user.visible_message("[user] starts transplanting \the [tool] into [target]'s [affected.name].", \
 			"You start transplanting \the [tool] into [target]'s [affected.name].")
-			H.custom_pain("Someone's rooting around in your [affected.name]!",1)
+			H.custom_pain("Someone's rooting around in your [affected.name]!",2)
 		else
 			user.visible_message("[user] starts transplanting \the [tool] into [target]'s [parse_zone(target_zone)].", \
 			"You start transplanting \the [tool] into [target]'s [parse_zone(target_zone)].")
@@ -136,7 +136,7 @@
 			var/self_msg = "You start pulling [target]'s skin back into place with \the [tool]."
 			user.visible_message(msg, self_msg)
 		if(affected)
-			H.custom_pain("Something hurts horribly in your [affected.name]!",1)
+			H.custom_pain("Something hurts horribly in your [affected.name]!",2)
 	else if(implement_type in implements_extract)
 		current_type = "extract"
 		var/list/organs = target.get_organs_zone(target_zone)
@@ -156,7 +156,7 @@
 				user.visible_message("[user] starts to separate [target]'s [I] with \the [tool].", \
 				"You start to separate [target]'s [I] with \the [tool] for removal." )
 				if(affected)
-					H.custom_pain("The pain in your [affected.name] is living hell!",1)
+					H.custom_pain("The pain in your [affected.name] is living hell!",2)
 			else
 				return -1
 
@@ -186,7 +186,7 @@
 
 			else
 				to_chat(user, "[I] does not appear to be damaged.")
-		H.custom_pain("The pain in your [affected.name] is living hell!",1)
+		H.custom_pain("The pain in your [affected.name] is living hell!",2)
 
 	else if(istype(tool, /obj/item/weapon/reagent_containers/food/snacks/organ))
 		to_chat(user, "<span class='warning'>[tool] was biten by someone! It's too damaged to use!</span>")

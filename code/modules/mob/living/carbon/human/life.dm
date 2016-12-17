@@ -80,7 +80,7 @@
 /mob/living/carbon/human/handle_disabilities()
 	if(disabilities & EPILEPSY)
 		if((prob(1) && paralysis < 1))
-			visible_message("<span class='danger'>[src] starts having a seizure!</span>","<span class='alert'>You have a seizure!</span>")
+			visible_message("<span class='danger'><b>[src]</b> starts having a seizure!</span>","<span class='alert'>You have a seizure!</span>")
 			Paralyse(10)
 			Jitter(1000)
 
@@ -939,8 +939,8 @@
 			if(lastpuke >= 25) // about 25 second delay I guess
 				Stun(5)
 
-				visible_message("<span class='danger'>[src] throws up!</span>", \
-						"<span class='userdanger'>[src] throws up!</span>")
+				visible_message("<span class='danger'><b>[src]</b> throws up!</span>", \
+						"<span class='userdanger'><b>[src]</b> throws up!</span>")
 				playsound(loc, 'sound/effects/splat.ogg', 50, 1)
 
 				var/turf/location = loc
@@ -978,50 +978,54 @@
 	if(species && species.flags & NO_PAIN)
 		return
 
-	if(health <= config.health_threshold_softcrit)// health 0 makes you immediately collapse
-		shock_stage = max(shock_stage, 61)
+	var/shock_prob = Clamp(traumatic_shock, 0, 100)
 
 	if(traumatic_shock >= 100)
 		shock_stage += 1
 	else
-		shock_stage = min(shock_stage, 160)
+		if(prob(shock_prob))//leaving injuries beyond 50% untreated will slowly build up shock. Bad.
+			shock_stage += 2
 		shock_stage = max(shock_stage-1, 0)
-		return
 
-	if(shock_stage == 10)
-		to_chat(src, "<font color='red'><b>"+pick("It hurts so much!", "You really need some painkillers..", "Dear god, the pain!"))
+	if(shock_stage >= 200)
+		heart_attack = 1//heart attack from severe shock. This is bad for you.
 
 	if(shock_stage >= 30)
-		if(shock_stage == 30) custom_emote(1,"is having trouble keeping their eyes open.")
 		EyeBlurry(2)
 		Stuttering(5)
 
-	if(shock_stage == 40)
-		to_chat(src, "<font color='red'><b>"+pick("The pain is excrutiating!", "Please, just end the pain!", "Your whole body is going numb!"))
+	switch(shock_stage)
 
-	if(shock_stage >=60)
-		if(shock_stage == 60) custom_emote(1,"falls limp.")
-		if(prob(2))
-			to_chat(src, "<font color='red'><b>"+pick("The pain is excrutiating!", "Please, just end the pain!", "Your whole body is going numb!"))
+		if(150 to INFINITY)
+			if(!weakened && !resting && !paralysis)
+				visible_message(pick("<b>[src]</b> stumbles to the ground.", "<b>[src]</b> falls to the ground."), "<font color='red'><b>"+pick("The pain is excrutiating!", "Please, just end the pain!", "Your whole body is going numb!"))
 			Weaken(20)
+			if(prob(5))
+				visible_message(pick("<b>[src]</b> slowly closes their eyes, exhausted.", "<b>[src]</b>, unable to keep going, passes out."), "<font color='red'><b>"+pick("You can barely feel your consciousness fade...", "Everything turns black as you lose consciousness from the unbearable pain.", "The pain makes you pass out."))
+				Paralyse(5)
+			return
 
-	if(shock_stage >= 80)
-		if(prob(5))
-			to_chat(src, "<font color='red'><b>"+pick("The pain is excrutiating!", "Please, just end the pain!", "Your whole body is going numb!"))
-			Weaken(20)
+		if(80 to 150)
+			if(prob(5))
+				if(!weakened && !resting && !paralysis)
+					visible_message(pick("<b>[src]</b> stumbles to the ground.", "<b>[src]</b> falls to the ground."), "<font color='red'><b>"+pick("The pain is excrutiating!", "Please, just end the pain!", "Your whole body is going numb!"))
+				Weaken(10)
+			return
 
-	if(shock_stage >= 120)
-		if(prob(2))
-			to_chat(src, "<font color='red'><b>"+pick("You black out!", "You feel like you could die any moment now.", "You're about to lose consciousness."))
-			Paralyse(5)
+		if(60 to 80)
+			if(prob(2))
+				if(!weakened && !resting && !paralysis)
+					visible_message(pick("<b>[src]</b> stumbles to the ground.", "<b>[src]</b> falls to the ground."), "<font color='red'><b>"+pick("The pain is excrutiating!", "Please, just end the pain!", "Your whole body is going numb!"))
+				Weaken(5)
+			return
 
-	if(shock_stage == 150)
-		custom_emote(1,"can no longer stand, collapsing!")
-		Weaken(20)
+		if(40 to 60)
+			if(prob(5))
+				to_chat(src, "<font color='red'><b>"+pick("The pain is excrutiating!", "Please, just end the pain!", "Your whole body is going numb!"))
 
-	if(shock_stage >= 150)
-		Weaken(20)
-
+		if(20 to 40)
+			if(prob(5))
+				to_chat(src, "<font color='red'><b>"+pick("It hurts so much!", "You really need some painkillers..", "Dear God, the pain!"))
 
 /mob/living/carbon/human/proc/handle_pulse()
 
@@ -1183,9 +1187,6 @@
 	else
 		AdjustLoseBreath(2, bound_lower = 0, bound_upper = 3)
 		adjustOxyLoss(5)
-		adjustBruteLoss(1)
-
-
 
 // Need this in species.
 //#undef HUMAN_MAX_OXYLOSS
