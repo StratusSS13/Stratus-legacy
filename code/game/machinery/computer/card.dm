@@ -33,7 +33,7 @@ var/time_last_changed_position = 0
 		/datum/job/nanotrasenrep,
 		/datum/job/pilot,
 		/datum/job/brigdoc,
-		/datum/job/mechanic,
+		/datum/job/explorer,
 		/datum/job/barber,
 		/datum/job/chaplain,
 		/datum/job/ntnavyofficer,

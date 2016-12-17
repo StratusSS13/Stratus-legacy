@@ -336,7 +336,7 @@
 			favoured_types = list(/obj/item/weapon/reagent_containers/food, /obj/item/weapon/kitchen)
 			functions += "bartend"
 			restrictedJob = 1
-		if("Station Engineer", "Chief Engineer", "Life Support Specialist", "Mechanic")
+		if("Station Engineer", "Chief Engineer", "Life Support Specialist", "Explorer")
 			favoured_types = list(/obj/item/stack, /obj/item/weapon, /obj/item/clothing)
 		if("Chief Medical Officer", "Medical Doctor", "Chemist", "Virologist", "Geneticist", "Psychiatrist", "Paramedic", "Brig Physician")
 			favoured_types = list(/obj/item/weapon/reagent_containers/glass/beaker, /obj/item/weapon/storage/firstaid, /obj/item/stack/medical, /obj/item/weapon/reagent_containers/syringe)
@@ -863,7 +863,7 @@
 			return /area/crew_quarters/bar
 		if("Chef")
 			return /area/crew_quarters/kitchen
-		if("Station Engineer", "Chief Engineer", "Mechanic")
+		if("Station Engineer", "Chief Engineer", "Explorer")
 			return /area/engine
 		if("Life Support Specialist")
 			return /area/atmos
