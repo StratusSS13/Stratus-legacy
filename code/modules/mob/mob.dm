@@ -1144,7 +1144,7 @@ mob/proc/yank_out_object()
 		if(prob(10)) //I'M SO ANEMIC I COULD JUST -DIE-.
 			var/datum/wound/internal_bleeding/I = new ()
 			affected.wounds += I
-			H.custom_pain("Something tears wetly in your [affected] as [selection] is pulled free!", 1)
+			H.custom_pain("Something tears wetly in your [affected] as [selection] is pulled free!", 2)
 
 		if(ishuman(U))
 			var/mob/living/carbon/human/human_user = U

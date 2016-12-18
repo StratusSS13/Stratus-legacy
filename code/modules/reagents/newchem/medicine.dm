@@ -295,7 +295,9 @@
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(H.traumatic_shock < 100)
-			H.shock_stage = 0
+			H.shock_stage -= 5
+		prob(2)
+			M.heart_attack = 0//super small chance to stop a heart attack
 	..()
 
 /datum/chemical_reaction/sal_acid
