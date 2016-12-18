@@ -294,8 +294,8 @@
 		M.adjustBruteLoss(-2*REM)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		if(H.traumatic_shock < 100)
-			H.shock_stage -= 5
+		if(H.traumatic_shock < 100 && prob(25))
+			H.shock_stage -= 1//very slow, can help lower shock during surgery, but isn't enough to make a massive change
 		prob(2)
 			M.heart_attack = 0//super small chance to stop a heart attack
 	..()
