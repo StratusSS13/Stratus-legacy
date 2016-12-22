@@ -548,13 +548,24 @@ var/list/slot_equipment_priority = list( \
 		return 0
 
 	changeNext_move(CLICK_CD_POINT)
-	var/obj/P = new /obj/effect/decal/point(tile)
+	var/obj/P
+	if(is_point_aim(A))//check whether it's a normal point or a gun aim
+		P = new /obj/effect/decal/aiming(tile)
+	else
+		P = new /obj/effect/decal/point(tile)
 	P.invisibility = invisibility
 	spawn (20)
 		if(P)
 			qdel(P)
 
 	return 1
+
+/mob/proc/is_point_aim(atom/pointed_at)
+	//proc used for checking whether the point is actually aiming
+	if(ismob(pointed_at) && ishuman(src))
+		if(istype(get_active_hand(), /obj/item/weapon/gun/))
+			return 1
+	return 0
 
 /mob/proc/ret_grab(obj/effect/list_container/mobl/L as obj, flag)
 	if((!( istype(l_hand, /obj/item/weapon/grab) ) && !( istype(r_hand, /obj/item/weapon/grab) )))
