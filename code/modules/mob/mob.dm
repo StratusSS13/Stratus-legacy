@@ -551,6 +551,8 @@ var/list/slot_equipment_priority = list( \
 	var/obj/P
 	if(is_point_aim(A))//check whether it's a normal point or a gun aim
 		P = new /obj/effect/decal/aiming(tile)
+		for(var/mob/living/K in viewers(src))
+			K << 'sound/weapons/TargetOn.ogg'
 	else
 		P = new /obj/effect/decal/point(tile)
 	P.invisibility = invisibility
