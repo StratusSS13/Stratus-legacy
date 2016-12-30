@@ -49,7 +49,7 @@
 
 	updatehealth()
 
-/mob/living/carbon/human/verb/suicide()
+// /mob/living/carbon/human/verb/suicide()
 	set hidden = 1
 
 	if(stat == DEAD)
@@ -167,7 +167,7 @@
 	else
 		to_chat(src, "Aborting suicide attempt.")
 
-/mob/living/carbon/alien/humanoid/verb/suicide()
+// /mob/living/carbon/alien/humanoid/verb/suicide()
 	set hidden = 1
 
 	if(stat == 2)
@@ -188,7 +188,7 @@
 		updatehealth()
 
 
-/mob/living/carbon/slime/verb/suicide()
+// /mob/living/carbon/slime/verb/suicide()
 	set hidden = 1
 	if(stat == 2)
 		to_chat(src, "You're already dead!")
