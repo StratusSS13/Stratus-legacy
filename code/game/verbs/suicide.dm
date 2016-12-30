@@ -49,42 +49,6 @@
 
 	updatehealth()
 
-// /mob/living/carbon/human/verb/suicide()
-	set hidden = 1
-
-	if(stat == DEAD)
-		to_chat(src, "You're already dead!")
-		return
-
-	if(!ticker)
-		to_chat(src, "You can't commit suicide before the game starts!")
-		return
-
-	// No more borergrief, one way or the other
-	if(has_brain_worms())
-		to_chat(src, "You try to bring yourself to commit suicide, but - something prevents you!")
-		return
-
-	if(suiciding)
-		to_chat(src, "You're already committing suicide! Be patient!")
-		return
-
-	var/confirm = alert("Are you sure you want to commit suicide?", "Confirm Suicide", "Yes", "No")
-
-	if(confirm == "Yes")
-		suiciding = 1
-		var/obj/item/held_item = get_active_hand()
-		if(held_item)
-			var/damagetype = held_item.suicide_act(src)
-			if(damagetype)
-				do_suicide(damagetype, held_item)
-				return
-
-		to_chat(viewers(src), "<span class=danger>[src] [pick(species.suicide_messages)] It looks like they're trying to commit suicide.</span>")
-		do_suicide(0)
-
-		updatehealth()
-
 /mob/living/carbon/brain/verb/suicide()
 	set hidden = 1
 
@@ -166,45 +130,3 @@
 		death(0, 1)
 	else
 		to_chat(src, "Aborting suicide attempt.")
-
-// /mob/living/carbon/alien/humanoid/verb/suicide()
-	set hidden = 1
-
-	if(stat == 2)
-		to_chat(src, "You're already dead!")
-		return
-
-	if(suiciding)
-		to_chat(src, "You're already committing suicide! Be patient!")
-		return
-
-	var/confirm = alert("Are you sure you want to commit suicide?", "Confirm Suicide", "Yes", "No")
-
-	if(confirm == "Yes")
-		suiciding = 1
-		to_chat(viewers(src), "<span class='danger'>[src] is thrashing wildly! It looks like \he's trying to commit suicide.</span>")
-		//put em at -175
-		adjustOxyLoss(max(175 - getFireLoss() - getBruteLoss() - getOxyLoss(), 0))
-		updatehealth()
-
-
-// /mob/living/carbon/slime/verb/suicide()
-	set hidden = 1
-	if(stat == 2)
-		to_chat(src, "You're already dead!")
-		return
-
-	if(suiciding)
-		to_chat(src, "You're already committing suicide! Be patient!")
-		return
-
-	var/confirm = alert("Are you sure you want to commit suicide?", "Confirm Suicide", "Yes", "No")
-
-	if(confirm == "Yes")
-		suiciding = 1
-		setOxyLoss(100)
-		adjustBruteLoss(100 - getBruteLoss())
-		setToxLoss(100)
-		setCloneLoss(100)
-
-		updatehealth()
