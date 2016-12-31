@@ -445,6 +445,8 @@
 						to_chat(wearer, "<span class='danger'>The suit optics drop out completely, drowning you in darkness.</span>")
 		if(!offline)
 			offline = 1
+			if(istype(boots) && boots.magpulse) //If we have (active) boots and the suit went offline, we deactivate the magboots.
+				boots.attack_self(wearer)
 			if(istype(wearer) && wearer.wearing_rig)
 				wearer.wearing_rig = null
 	else
