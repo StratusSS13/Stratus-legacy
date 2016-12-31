@@ -19,10 +19,6 @@
 	var/chargerate = 1000 //how much power is given every tick in a recharger
 	var/self_recharge = 0 //does it self recharge, over time, or not?
 
-/obj/item/weapon/stock_parts/cell/suicide_act(mob/user)
-	to_chat(viewers(user), "<span class='suicide'>[user] is licking the electrodes of the [src.name]! It looks like \he's trying to commit suicide.</span>")
-	return (FIRELOSS)
-
 /obj/item/weapon/stock_parts/cell/process()
 	if(self_recharge)
 		give(chargerate * 0.25)

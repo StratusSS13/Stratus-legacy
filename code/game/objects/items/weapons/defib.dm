@@ -277,12 +277,6 @@
 	if(cooldown)
 		icon_state = "defibpaddles[wielded]_cooldown"
 
-/obj/item/weapon/twohanded/shockpaddles/suicide_act(mob/user)
-	user.visible_message("<span class='danger'>[user] is putting the live paddles on \his chest! It looks like \he's trying to commit suicide.</span>")
-	defib.deductcharge(revivecost)
-	playsound(get_turf(src), 'sound/machines/defib_zap.ogg', 50, 1, -1)
-	return (OXYLOSS)
-
 /obj/item/weapon/twohanded/shockpaddles/dropped(mob/user as mob)
 	if(user)
 		var/obj/item/weapon/twohanded/offhand/O = user.get_inactive_hand()
