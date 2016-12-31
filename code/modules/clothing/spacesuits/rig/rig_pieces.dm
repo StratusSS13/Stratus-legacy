@@ -57,6 +57,12 @@
 	species_restricted = null
 	gender = PLURAL
 
+	/obj/item/clothing/shoes/magboots/rig/attack_self(mob/user)
+		if(flags & AIRTIGHT) //Could also check for STOPSPRESSUREDMAGE, but one is enough, both get toggled when the seal gets toggled.
+			..(user)
+		else
+			to_chat(user, "<span class='warning'>You cannot activate mag-pulse traction system while the suit is not sealed.</span>")
+
 /obj/item/clothing/suit/space/new_rig
 	name = "chestpiece"
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank)

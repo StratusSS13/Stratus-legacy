@@ -42,7 +42,7 @@
 
 	//Component/device holders.
 	var/obj/item/weapon/tank/air_supply                       // Air tank, if any.
-	var/obj/item/clothing/shoes/boots = null                  // Deployable boots, if any.
+	var/obj/item/clothing/shoes/magboots/boots = null             // Deployable boots, if any.
 	var/obj/item/clothing/suit/space/new_rig/chest                // Deployable chestpiece, if any.
 	var/obj/item/clothing/head/helmet/space/new_rig/helmet = null // Deployable helmet, if any.
 	var/obj/item/clothing/gloves/rig/gloves = null            // Deployable gauntlets, if any.
@@ -129,6 +129,7 @@
 	if(boot_type)
 		boots = new boot_type(src)
 		verbs |= /obj/item/weapon/rig/proc/toggle_boots
+		boots.magboot_state="[initial(icon_state)]_sealed"
 	if(chest_type)
 		chest = new chest_type(src)
 		if(allowed)
@@ -254,6 +255,7 @@
 			switch(msg_type)
 				if("boots")
 					to_chat(wearer, "<font color='blue'>\The [correct_piece] seal around your feet.</font>")
+					correct_piece.icon_state = "[initial(icon_state)]_sealed0" //Solution to not need a sprite for off, on, and unused magboots.
 					if(user != wearer)
 						to_chat(user, "<span class='notice'>\The [correct_piece] has been sealed.</span>")
 					wearer.update_inv_shoes()
@@ -406,6 +408,8 @@
 	update_icon(1)
 
 /obj/item/weapon/rig/proc/update_component_sealed()
+	if(istype(boots) && !(flags & NODROP) && boots.magpulse) //If we have (active) boots and unsealed the suit, we deactivate the magboots.
+		boots.attack_self(wearer)
 	for(var/obj/item/piece in list(helmet,boots,gloves,chest))
 		if(!(flags & NODROP))
 			piece.flags &= ~STOPSPRESSUREDMAGE
