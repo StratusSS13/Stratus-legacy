@@ -12,7 +12,7 @@
 	var/brightness_on = 4
 	var/on = 0
 	sprite_sheets = list(
-		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi',
+		"Tajaran" = 'icons/mob/species/tajaran/helmet.dmi',
 		"Skrell" = 'icons/mob/species/skrell/helmet.dmi',
 		"Unathi" = 'icons/mob/species/unathi/helmet.dmi'
 		)
@@ -77,7 +77,7 @@
 	resilience = 0.2
 	can_breach = 1
 	sprite_sheets = list(
-		"Tajara" = 'icons/mob/species/tajaran/suit.dmi',
+		"Tajaran" = 'icons/mob/species/tajaran/suit.dmi',
 		"Unathi" = 'icons/mob/species/unathi/suit.dmi'
 		)
 
