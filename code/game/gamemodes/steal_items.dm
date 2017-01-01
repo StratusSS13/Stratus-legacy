@@ -33,7 +33,7 @@
 /datum/theft_objective/hoslaser
 	name = "the head of security's recreated antique laser gun"
 	typepath = /obj/item/weapon/gun/energy/gun/hos
-	protected_jobs = list("Head Of Security")
+	protected_jobs = list("Head of Security")
 
 /datum/theft_objective/hand_tele
 	name = "a hand teleporter"
@@ -119,7 +119,7 @@ datum/theft_objective/ai/check_special_completion(var/obj/item/device/aicard/C)
 /datum/theft_objective/krav
 	name = "the warden's krav maga martial arts gloves"
 	typepath = /obj/item/clothing/gloves/color/black/krav_maga/sec
-	protected_jobs = list("Head Of Security", "Warden")
+	protected_jobs = list("Head of Security", "Warden")
 
 /datum/theft_objective/number
 	var/min=0
