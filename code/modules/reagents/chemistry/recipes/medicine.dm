@@ -33,7 +33,7 @@
 	name = "Rezadone"
 	id = "rezadone"
 	result = "rezadone"
-	required_reagents = list("carpotoxin" = 1, "spaceacillin" = 1, "copper" = 1)
+	required_reagents = list("mutadone" = 1, "spaceacillin" = 1, "copper" = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/sterilizine
@@ -94,6 +94,13 @@
 	result_amount = 2
 	min_temp = 374
 	mix_message = "Stinging vapors rise from the solution."
+
+/datum/chemical_reaction/calomel/on_reaction(var/datum/reagents/holder)
+	var/turf/T = get_turf(holder.my_atom)
+	T.visible_message("<span class='warning'>The solution generates a strong vapor!</span>")
+	for(var/mob/living/carbon/C in range(T, 1))
+		if(C.can_breathe_gas())
+			C.reagents.add_reagent("calomel",10)
 
 /datum/chemical_reaction/potass_iodide
 	name = "Potassium Iodide"
