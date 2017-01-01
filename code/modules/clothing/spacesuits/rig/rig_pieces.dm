@@ -17,6 +17,7 @@
 		"Unathi" = 'icons/mob/species/unathi/helmet.dmi'
 		)
 	species_restricted = null
+	actions_types = list(/datum/action/item_action/toggle_helmet_light)
 
 	flash_protect = 2
 
@@ -29,7 +30,7 @@
 
 /obj/item/clothing/head/helmet/space/new_rig/proc/toggle_light(mob/user)
 	on = !on
-	icon_state = "rig[on]-[item_color]"
+	icon_state = "[item_color][on]"
 
 	if(on)
 		set_light(brightness_on)

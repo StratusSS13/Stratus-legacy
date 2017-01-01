@@ -126,10 +126,11 @@
 	if(helm_type)
 		helmet = new helm_type(src)
 		verbs |= /obj/item/weapon/rig/proc/toggle_helmet
+		helmet.item_color="[initial(icon_state)]_sealed" //For the lightswitching to know the correct string to manipulate
 	if(boot_type)
 		boots = new boot_type(src)
 		verbs |= /obj/item/weapon/rig/proc/toggle_boots
-		boots.magboot_state="[initial(icon_state)]_sealed"
+		boots.magboot_state="[initial(icon_state)]_sealed" //For the magboot (de)activation to know the correct string to manipulate
 	if(chest_type)
 		chest = new chest_type(src)
 		if(allowed)
@@ -271,6 +272,7 @@
 					wearer.update_inv_wear_suit()
 				if("helmet")
 					to_chat(wearer, "<font color='blue'>\The [correct_piece] hisses closed.</font>")
+					correct_piece.icon_state = "[initial(icon_state)]_sealed0" //Solution to not need a sprite for off, on, and unused helmet light.
 					if(user != wearer)
 						to_chat(user, "<span class='notice'>\The [correct_piece] has been sealed.</span>")
 					wearer.update_inv_head()
