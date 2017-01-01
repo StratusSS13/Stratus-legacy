@@ -1,5 +1,5 @@
-/datum/job/commander
-	title = "NTSF Commander"
+/datum/job/hos
+	title = "Head of Security"
 	flag = COMMANDER
 	department_flag = ENGSEC
 	total_positions = 1
@@ -11,11 +11,11 @@
 	access = list(access_security, access_sec_doors, access_brig, access_armory, access_court,
 			            access_forensics_lockers, access_pilot, access_morgue, access_maint_tunnels, access_all_personal_lockers,
 			            access_research, access_engine, access_mining, access_medical, access_construction, access_mailsorting,
-			            access_heads, access_commander, access_RC_announce, access_keycard_auth, access_gateway, access_weapons)
+			            access_heads, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_weapons)
 	minimal_access = list(access_eva, access_security, access_sec_doors, access_brig, access_armory, access_court,
 			            access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
 			            access_research, access_engine, access_mining, access_medical, access_construction, access_mailsorting,
-			            access_heads, access_commander, access_RC_announce, access_keycard_auth, access_gateway, access_pilot, access_weapons)
+			            access_heads, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_pilot, access_weapons)
 	minimal_player_age = 21
 
 	equip(var/mob/living/carbon/human/H)
@@ -46,12 +46,12 @@
 
 
 /datum/job/warden
-	title = "NTSF Warden"
+	title = "Warden"
 	flag = WARDEN
 	department_flag = ENGSEC
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the NTSF commander"
+	supervisors = "the head of security"
 	selection_color = "#ffeeee"
 	idtype = /obj/item/weapon/card/id/security
 	access = list(access_security, access_sec_doors, access_brig, access_armory, access_court, access_maint_tunnels, access_morgue, access_weapons)
@@ -87,12 +87,12 @@
 
 
 /datum/job/investigator
-	title = "NTSF Investigator"
+	title = "Detective"
 	flag = INVESTIGATOR
 	department_flag = ENGSEC
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the NTSF commander"
+	supervisors = "the head of security"
 	selection_color = "#ffeeee"
 	idtype = /obj/item/weapon/card/id/security
 	access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_court, access_weapons)
@@ -137,12 +137,12 @@
 
 
 /datum/job/officer
-	title = "NTSF Officer"
+	title = "Security Officer"
 	flag = OFFICER
 	department_flag = ENGSEC
 	total_positions = 5
 	spawn_positions = 5
-	supervisors = "the NTSF commander"
+	supervisors = "the head of security"
 	selection_color = "#ffeeee"
 	idtype = /obj/item/weapon/card/id/security
 	access = list(access_security, access_sec_doors, access_brig, access_court, access_maint_tunnels, access_morgue, access_weapons)
@@ -173,12 +173,12 @@
 		return 1
 
 /datum/job/brigdoc
-	title = "NTSF Medic"
+	title = "Brig Physician"
 	flag = BRIGDOC
 	department_flag = KARMA
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the NTSF commander"
+	supervisors = "the head of security"
 	selection_color = "#ffeeee"
 	idtype = /obj/item/weapon/card/id/security
 	access = list(access_medical, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics)
@@ -206,12 +206,12 @@
 		return 1
 
 /datum/job/pilot
-	title = "NTSF Pilot"
+	title = "Security Pod Pilot"
 	flag = PILOT
 	department_flag = KARMA
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the NTSF commander"
+	supervisors = "the head of security"
 	selection_color = "#ffeeee"
 	idtype = /obj/item/weapon/card/id/security
 	access = list(access_security, access_sec_doors, access_brig, access_court, access_maint_tunnels, access_morgue, access_weapons, access_pilot, access_external_airlocks)

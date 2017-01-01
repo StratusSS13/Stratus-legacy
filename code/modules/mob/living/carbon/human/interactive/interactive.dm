@@ -343,7 +343,7 @@
 			functions += "healpeople"
 		if("Research Director", "Scientist", "Roboticist")
 			favoured_types = list(/obj/item/weapon/reagent_containers/glass/beaker, /obj/item/stack, /obj/item/weapon/reagent_containers)
-		if("NTSF Commander", "NTSF Warden", "NTSF Officer", "NTSF Investigator", "NTSF Pilot", "Blueshield")
+		if("Head of Security", "Warden", "Security Officer", "Detective", "Security Pod Pilot", "Blueshield")
 			favoured_types = list(/obj/item/clothing, /obj/item/weapon, /obj/item/weapon/restraints)
 		if("Janitor")
 			favoured_types = list(/obj/item/weapon/mop, /obj/item/weapon/reagent_containers/glass/bucket, /obj/item/weapon/reagent_containers/spray/cleaner, /obj/effect/decal/cleanable)
@@ -875,7 +875,7 @@
 			return /area/toxins
 		if("Roboticist")
 			return /area/assembly/robotics
-		if("NTSF Commander", "NTSF Warden", "NTSF Officer", "NTSF Officer", "NTSF Pilot", "NTSF Medic", "Internal Affairs Agent")
+		if("Head of Security", "Warden", "Security Officer", "Security Officer", "Security Pod Pilot", "Brig Physician", "Internal Affairs Agent")
 			return /area/security
 		if("Botanist")
 			return /area/hydroponics

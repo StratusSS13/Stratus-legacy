@@ -61,7 +61,7 @@ var/list/assistant_occupations = list(
 var/list/command_positions = list(
 	"Captain",
 	"Head of Personnel",
-	"NTSF Commander",
+	"Head of Security",
 	"Chief Engineer",
 	"Research Director",
 	"Chief Medical Officer"
@@ -125,12 +125,12 @@ var/list/service_positions = support_positions - supply_positions + list("Head o
 
 
 var/list/security_positions = list(
-	"NTSF Commander",
-	"NTSF Warden",
-	"NTSF Investigator",
-	"NTSF Officer",
-	"NTSF Medic",
-	"NTSF Pilot"
+	"Head of Security",
+	"Warden",
+	"Detective",
+	"Security Officer",
+	"Brig Physician",
+	"Security Pod Pilot"
 )
 
 
@@ -150,7 +150,7 @@ var/list/whitelisted_positions = list(
 	"Nanotrasen Representative",
 	"Barber",
 	"Explorer",
-	"NTSF Medic",
+	"Brig Physician",
 	"Security Pod Pilot",
 )
 
