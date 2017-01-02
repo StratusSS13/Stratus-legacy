@@ -796,17 +796,17 @@
 	if(!wearer || !user)
 		return 0
 
-	if(flags & NODROP)
-		if(wearer.head && wearer.head != helmet)
+	if(flags & NODROP) //We need to check if we have the part, the person is wearing something in the parts slot, and if yes, are they the same.
+		if(helmet && wearer.head && wearer.head != helmet)
 			to_chat(user, "<span class='danger'>\The [wearer.head] is blocking \the [src] from deploying!</span>")
 			return 0
-		if(wearer.gloves && wearer.gloves != gloves)
+		if(gloves && wearer.gloves && wearer.gloves != gloves)
 			to_chat(user, "<span class='danger'>\The [wearer.gloves] is preventing \the [src] from deploying!</span>")
 			return 0
-		if(wearer.shoes && wearer.shoes != boots)
+		if(shoes && wearer.shoes && wearer.shoes != boots)
 			to_chat(user, "<span class='danger'>\The [wearer.shoes] is preventing \the [src] from deploying!</span>")
 			return 0
-		if(wearer.wear_suit && wearer.wear_suit != chest)
+		if(chest && wearer.wear_suit && wearer.wear_suit != chest)
 			to_chat(user, "<span class='danger'>\The [wearer.wear_suit] is preventing \the [src] from deploying!</span>")
 			return 0
 
