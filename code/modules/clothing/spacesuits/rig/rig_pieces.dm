@@ -4,7 +4,7 @@
 
 /obj/item/clothing/head/helmet/space/new_rig
 	name = "helmet"
-	flags =  HEADCOVERSEYES | BLOCKHAIR | HEADCOVERSMOUTH | THICKMATERIAL
+	flags =  HEADCOVERSEYES | BLOCKHAIR | HEADCOVERSMOUTH | THICKMATERIAL | NODROP
 	flags_inv = 		 HIDEEARS|HIDEEYES|HIDEFACE|HIDEMASK
 	body_parts_covered = HEAD
 	heat_protection =    HEAD
@@ -43,7 +43,7 @@
 
 /obj/item/clothing/gloves/rig
 	name = "gauntlets"
-	flags = THICKMATERIAL
+	flags = THICKMATERIAL | NODROP
 	body_parts_covered = HANDS
 	heat_protection =    HANDS
 	cold_protection =    HANDS
@@ -52,6 +52,7 @@
 
 /obj/item/clothing/shoes/magboots/rig
 	name = "boots"
+	flags = NODROP
 	body_parts_covered = FEET
 	cold_protection = FEET
 	heat_protection = FEET
@@ -71,7 +72,7 @@
 	heat_protection =    UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	cold_protection =    UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	flags_inv =          HIDEJUMPSUIT|HIDETAIL
-	flags =              STOPSPRESSUREDMAGE | THICKMATERIAL | AIRTIGHT
+	flags =              STOPSPRESSUREDMAGE | THICKMATERIAL | AIRTIGHT | NODROP
 	slowdown = 0
 	//will reach 10 breach damage after 25 laser carbine blasts, 3 revolver hits, or ~1 PTR hit. Completely immune to smg or sts hits.
 	breach_threshold = 38
