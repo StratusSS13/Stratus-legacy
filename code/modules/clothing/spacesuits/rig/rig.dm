@@ -185,6 +185,10 @@
 /obj/item/weapon/rig/proc/reset()
 	offline = 2
 	flags &= ~NODROP
+	if(helmet&&helmet.on)
+		helmet.toggle_light(wearer)
+	if(boots&&boots.magpulse)
+		boots.attack_self(wearer)
 	for(var/obj/item/piece in list(helmet,boots,gloves,chest))
 		if(!piece) continue
 		piece.icon_state = "[initial(icon_state)]"
@@ -387,10 +391,14 @@
 	sealing = FALSE
 
 	if(failed_to_seal)
-		for(var/obj/item/piece in list(helmet, boots, gloves, chest))
+		for(var/obj/item/piece in list(gloves, chest))
 			if(!piece)
 				continue
 			piece.icon_state = "[initial(icon_state)]_sealed"
+		if(helmet)
+			helmet.icon_state = "[initial(icon_state)]_sealed[helmet.on]"
+		if(boots)
+			boots.icon_state = "[initial(icon_state)]_sealed[boots.magpulse]"
 		if(airtight)
 			update_component_sealed()
 		update_icon(1)

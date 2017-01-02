@@ -29,13 +29,17 @@
 	toggle_light(user)
 
 /obj/item/clothing/head/helmet/space/new_rig/proc/toggle_light(mob/user)
-	on = !on
-	icon_state = "[item_color][on]"
+	if(flags & AIRTIGHT) //Could also check for STOPSPRESSUREDMAGE, but one is enough, both get toggled when the seal gets toggled.
 
-	if(on)
-		set_light(brightness_on)
+		on = !on
+		icon_state = "[item_color][on]"
+
+		if(on)
+			set_light(brightness_on)
+		else
+			set_light(0)
 	else
-		set_light(0)
+		to_chat(user, "<span class='warning'>You cannot turn the light on while the suit isn't sealed.</span>")
 
 	if(istype(user,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
