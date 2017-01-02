@@ -412,6 +412,8 @@
 /obj/item/weapon/rig/proc/update_component_sealed()
 	if(istype(boots) && !(flags & NODROP) && boots.magpulse) //If we have (active) boots and unsealed the suit, we deactivate the magboots.
 		boots.attack_self(wearer)
+	if(istype(helmet) && !(flags & NODROP) && helmet.on) //If we have an (active) headlamp and unsealed the suit, we deactivate the headlamp.
+		helmet.toggle_light(wearer)
 	for(var/obj/item/piece in list(helmet,boots,gloves,chest))
 		if(!(flags & NODROP))
 			piece.flags &= ~STOPSPRESSUREDMAGE
@@ -447,8 +449,6 @@
 						to_chat(wearer, "<span class='danger'>The suit optics drop out completely, drowning you in darkness.</span>")
 		if(!offline)
 			offline = 1
-			if(istype(boots) && boots.magpulse) //If we have (active) boots and the suit went offline, we deactivate the magboots.
-				boots.attack_self(wearer)
 			if(istype(wearer) && wearer.wearing_rig)
 				wearer.wearing_rig = null
 	else
@@ -463,6 +463,10 @@
 			for(var/obj/item/rig_module/module in installed_modules)
 				module.deactivate()
 			offline = 2
+			if(istype(boots) && boots.magpulse) //If we have (active) boots and the suit went offline, we deactivate the magboots.
+				boots.attack_self(wearer)
+			if(istype(helmet) && !(flags & NODROP) && helmet.on) //If we have an (active) headlamp and the suit went offline, we deactivate the headlamp.
+				helmet.toggle_light(wearer)
 			chest.slowdown = offline_slowdown
 		return
 
