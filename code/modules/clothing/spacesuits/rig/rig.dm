@@ -471,10 +471,11 @@
 			for(var/obj/item/rig_module/module in installed_modules)
 				module.deactivate()
 			offline = 2
-			if(istype(boots) && boots.magpulse) //If we have (active) boots and the suit went offline, we deactivate the magboots.
+			//Commented out until boots/helmets stay disabled. Spacesuits don't have a power restriction on them.
+			/*if(istype(boots) && boots.magpulse) //If we have (active) boots and the suit went offline, we deactivate the magboots.
 				boots.attack_self(wearer)
 			if(istype(helmet) && !(flags & NODROP) && helmet.on) //If we have an (active) headlamp and the suit went offline, we deactivate the headlamp.
-				helmet.toggle_light(wearer)
+				helmet.toggle_light(wearer)*/
 			chest.slowdown = offline_slowdown
 		return
 
