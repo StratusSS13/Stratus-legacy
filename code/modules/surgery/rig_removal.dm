@@ -1,12 +1,12 @@
 //Procedures in this file: Unsealing a Rig.
 
-datum/surgery/rigsuit
+/datum/surgery/rigsuit
   name = "Rig Unsealing"
   steps = list(/datum/surgery_step/rigsuit)
   possible_locs = list("chest")
 
-datum/surgery/rigsuit/can_start(mob/user, mob/living/carbon/target)
-  if(istype(target,/mob/living/carbon/human))
+/datum/surgery/rigsuit/can_start(mob/user, mob/living/carbon/target)
+  if(ishuman(target))
     var/mob/living/carbon/human/H = target
     var/obj/item/backitem = H.get_item_by_slot(slot_back)
     if(istype(backitem,/obj/item/weapon/rig)) //Check if we have a rig to operate on
