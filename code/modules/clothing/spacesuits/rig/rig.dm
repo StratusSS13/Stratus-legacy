@@ -803,7 +803,7 @@
 		if(gloves && wearer.gloves && wearer.gloves != gloves)
 			to_chat(user, "<span class='danger'>\The [wearer.gloves] is preventing \the [src] from deploying!</span>")
 			return 0
-		if(shoes && wearer.shoes && wearer.shoes != boots)
+		if(boots && wearer.shoes && wearer.shoes != boots)
 			to_chat(user, "<span class='danger'>\The [wearer.shoes] is preventing \the [src] from deploying!</span>")
 			return 0
 		if(chest && wearer.wear_suit && wearer.wear_suit != chest)
