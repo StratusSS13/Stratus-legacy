@@ -732,8 +732,9 @@
 	if(sealing || !cell || !cell.charge)
 		return 0
 
-	if(user == wearer && user.incapacitated()) // If the user isn't wearing the suit it's probably an AI.
-		return 0
+	if(!(deploy_mode==ONLY_RETRACT && force)) //This should be the case while stripping, stripping does trigger the if statement below.
+		if(user == wearer && user.incapacitated()) // If the user isn't wearing the suit it's probably an AI.
+			return 0
 
 	var/obj/item/check_slot
 	var/equip_to
