@@ -205,4 +205,4 @@
 	w_class = 4
 	stunforce = 5
 	hitcost = 3750
-	slot_flags = null
+	slot_flags = SLOT_BACK
