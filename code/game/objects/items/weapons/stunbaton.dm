@@ -202,6 +202,7 @@
 	item_state = "prod"
 	force = 3
 	throwforce = 5
+	w_class = 4
 	stunforce = 5
 	hitcost = 3750
 	slot_flags = null
