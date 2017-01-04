@@ -548,17 +548,23 @@ var/list/slot_equipment_priority = list( \
 		return 0
 
 	changeNext_move(CLICK_CD_POINT)
-	var/obj/P
 	if(is_point_aim(A))//check whether it's a normal point or a gun aim
-		P = new /obj/effect/decal/aiming(tile)
+		//P = new /obj/effect/decal/aiming(tile)
+		//add an overlay to the aimed at mob, because why note
+		var/overlay = image('icons/effects/Targeted.dmi', "locked")
+		A.overlays += overlay
+		spawn(40)
+			if(A && A.overlays && overlay)
+				A.overlays -= overlay
+			qdel(overlay)
 		for(var/mob/living/K in viewers(src))
 			K << 'sound/weapons/TargetOn.ogg'
 	else
-		P = new /obj/effect/decal/point(tile)
-	P.invisibility = invisibility
-	spawn (20)
-		if(P)
-			qdel(P)
+		var/obj/P = new /obj/effect/decal/point(tile)
+		P.invisibility = invisibility
+		spawn (20)
+			if(P)
+				qdel(P)
 
 	return 1
 

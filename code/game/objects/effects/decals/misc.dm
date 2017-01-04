@@ -7,15 +7,6 @@
 	anchored = 1
 	mouse_opacity = 0
 
-/obj/effect/decal/aiming
-	name = "reticle"
-	desc = "Freeze!"
-	icon = 'icons/effects/Targeted.dmi'
-	icon_state = "locked"
-	layer = 16.0
-	anchored = 1
-	mouse_opacity = 0
-
 // Used for spray that you spray at walls, tables, hydrovats etc
 /obj/effect/decal/spraystill
 	density = 0
