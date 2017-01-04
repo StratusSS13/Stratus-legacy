@@ -724,15 +724,17 @@
 					if(isliving(uneq_piece.loc))
 						var/mob/living/L = uneq_piece.loc
 						L.unEquip(uneq_piece, 1)
-					uneq_piece.flags &= ~NODROP
+					//uneq_piece.flags &= ~NODROP
+					//Why would we want to make it able to remove the piece per hand?
 					uneq_piece.forceMove(src)
 		return 0
 
 	if(sealing || !cell || !cell.charge)
 		return 0
 
-	if(user == wearer && user.incapacitated()) // If the user isn't wearing the suit it's probably an AI.
-		return 0
+	if(!(deploy_mode==ONLY_RETRACT && force)) //This should be the case while stripping, stripping does trigger the if statement below.
+		if(user == wearer && user.incapacitated()) // If the user isn't wearing the suit it's probably an AI.
+			return 0
 
 	var/obj/item/check_slot
 	var/equip_to
@@ -771,7 +773,8 @@
 			if(to_strip)
 				to_strip.unEquip(use_obj, 1)
 
-			use_obj.flags &= ~NODROP
+			//use_obj.flags &= ~NODROP
+			//Why would we want to make it able to remove the piece per hand?
 			use_obj.forceMove(src)
 			if(wearer)
 				to_chat(wearer, "<span class='notice'>Your [use_obj] [use_obj.gender == PLURAL ? "retract" : "retracts"] swiftly.")
@@ -781,13 +784,15 @@
 				to_chat(wearer, "<span class='danger'>You are unable to deploy \the [piece] as \the [check_slot] [check_slot.gender == PLURAL ? "are" : "is"] in the way.</span>")
 				return
 			use_obj.forceMove(wearer)
-			use_obj.flags &= ~NODROP
+			//use_obj.flags &= ~NODROP
+			//Why would we want to make it able to remove the piece per hand?
 			if(!wearer.equip_to_slot_if_possible(use_obj, equip_to, 0, 1))
 				use_obj.forceMove(src)
 			else
 				if(wearer)
 					to_chat(wearer, "<span class='notice'>Your [use_obj.name] [use_obj.gender == PLURAL ? "deploy" : "deploys"] swiftly.</span>")
-				use_obj.flags |= NODROP
+				//use_obj.flags |= NODROP
+				//Parts should be inherently NODROP now, so if we don't remove the flag, we don't need to add it.
 
 	if(piece == "helmet" && helmet)
 		helmet.update_light(wearer)

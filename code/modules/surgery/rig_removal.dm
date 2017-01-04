@@ -1,25 +1,26 @@
 //Procedures in this file: Unsealing a Rig.
 
 /datum/surgery/rigsuit
-  name = "Rig Unsealing"
-  steps = list(/datum/surgery_step/rigsuit)
-  possible_locs = list("chest")
+	name = "Rig Unsealing"
+	steps = list(/datum/surgery_step/rigsuit)
+	possible_locs = list("chest")
 
 /datum/surgery/rigsuit/can_start(mob/user, mob/living/carbon/target)
-  if(ishuman(target))
-    var/mob/living/carbon/human/H = target
-    var/obj/item/backitem = H.get_item_by_slot(slot_back)
-    if(istype(backitem,/obj/item/weapon/rig)) //Check if we have a rig to operate on
-      if(backitem.flags&NODROP) //Check if the rig is sealed, if not, we don't need to operate
-        return 1
-  return 0
+	if(ishuman(target))
+		var/mob/living/carbon/human/H = target
+		var/obj/item/backitem = H.get_item_by_slot(slot_back)
+		if(istype(backitem,/obj/item/weapon/rig)) //Check if we have a rig to operate on
+			if(backitem.flags&NODROP) //Check if the rig is sealed, if not, we don't need to operate
+				return 1
+	return 0
 
 //Bay12 removal
 /datum/surgery_step/rigsuit
+	name="Cut Seals"
 	allowed_tools = list(
 		/obj/item/weapon/weldingtool = 80,
 		/obj/item/weapon/circular_saw = 60,
-    /obj/item/weapon/gun/energy/plasmacutter = 100
+		/obj/item/weapon/gun/energy/plasmacutter = 100
 		)
 
 	can_infect = 0
@@ -49,7 +50,9 @@
 	rig.reset()
 	user.visible_message("<span class='notice'>[user] has cut through the support systems of [target]'s [rig] with \the [tool].</span>", \
 		"<span class='notice'>You have cut through the support systems of [target]'s [rig] with \the [tool].</span>")
+	return 1
 
 /datum/surgery_step/rigsuit/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<span class='danger'>[user]'s [tool] can't quite seem to get through the metal...</span>", \
 	"<span class='danger'>Your [tool] can't quite seem to get through the metal. It's weakening, though - try again.</span>")
+	return 0
