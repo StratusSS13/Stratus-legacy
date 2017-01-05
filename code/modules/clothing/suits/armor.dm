@@ -39,7 +39,7 @@
 	flags_size = ONESIZEFITSALL
 
 /obj/item/clothing/suit/armor/vest/security
-	name = "\improper security armor"
+	name = "security armor"
 	desc = "An armored vest that protects against some damage. This one has a clip for a holobadge."
 	icon_state = "armor"
 	item_state = "armor"
@@ -96,8 +96,8 @@
 	sprite_sheets = null
 
 /obj/item/clothing/suit/armor/secjacket
-	name = "\improper security jacket"
-	desc = "A sturdy black jacket with reinforced fabric. Bears insignia of NT."
+	name = "security jacket"
+	desc = "A sturdy black jacket with reinforced fabric. Bears insignia of NT corporate security."
 	icon_state = "secjacket_open"
 	item_state = "hos"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS

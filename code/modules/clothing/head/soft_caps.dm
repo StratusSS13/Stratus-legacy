@@ -90,7 +90,7 @@
 	item_color = "rainbow"
 
 /obj/item/clothing/head/soft/sec
-	name = "\improper security cap"
+	name = "security cap"
 	desc = "It's baseball hat in tasteful red colour."
 	icon_state = "secsoft"
 	item_color = "sec"
@@ -98,7 +98,7 @@
 	strip_delay = 60
 
 /obj/item/clothing/head/soft/sec/corp
-	name = "\improper corporate security cap"
+	name = "corporate security cap"
 	desc = "It's baseball hat in corpotate colours."
 	icon_state = "corpsoft"
 	item_color = "corp"
