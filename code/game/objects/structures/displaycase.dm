@@ -265,7 +265,7 @@ var/global/list/captain_display_cases = list()
 		if(locked)
 			to_chat(user, "<span class='warning'>It's locked, you can't put anything into it.</span>")
 			return
-		if(!occupant)
+		if(!occupant && !(W.flags & ABSTRACT)) //ABSTRACT to stop grabs and the like to be displayed.
 			to_chat(user, "<span class='notice'>You insert \the [W] into \the [src], and it floats as the hoverfield activates.</span>")
 			user.drop_item()
 			W.forceMove(src)
