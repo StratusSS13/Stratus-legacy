@@ -305,7 +305,7 @@ var/global/list/captain_display_cases = list()
 					dump()
 					update_icon()
 				else
-					to_chat(src, "[bicon(src)] <span class='warning'>\The [src] is empty!</span>")
+					to_chat(user, "[bicon(src)] <span class='warning'>\The [src] is empty!</span>")
 		else
 			user.visible_message("[user.name] gently runs his hands over \the [src] in appreciation of its contents.", \
 				"You gently run your hands over \the [src] in appreciation of its contents.", \
