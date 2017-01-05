@@ -3,6 +3,12 @@
 	caliber = "357"
 	projectile_type = /obj/item/projectile/bullet
 
+/obj/item/ammo_casing/rubber9mm
+	desc = "A 9mm rubber bullet casing."
+	caliber = "9mm"
+	icon_state = "r-casing"
+	projectile_type = /obj/item/projectile/bullet/weakbullet4
+
 /obj/item/ammo_casing/a762
 	desc = "A 7.62mm bullet casing."
 	icon_state = "762-casing"
@@ -20,6 +26,7 @@
 /obj/item/ammo_casing/c38
 	desc = "A .38 bullet casing."
 	caliber = "38"
+	icon_state = "r-casing"
 	projectile_type = /obj/item/projectile/bullet/weakbullet2/rubber
 
 /obj/item/ammo_casing/c10mm
@@ -75,6 +82,12 @@
 	desc = "A 4.6x30mm bullet casing."
 	caliber = "4.6x30mm"
 	projectile_type = /obj/item/projectile/bullet/incendiary/firebullet
+
+/obj/item/ammo_casing/rubber45
+	desc = "A .45 rubber bullet casing."
+	caliber = ".45"
+	icon_state = "r-casing"
+	projectile_type = /obj/item/projectile/bullet/weakbullet4
 
 /obj/item/ammo_casing/c45
 	desc = "A .45 bullet casing."
