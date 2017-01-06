@@ -256,7 +256,7 @@ var/global/list/captain_display_cases = list()
 		src.health -= W.force
 		src.healthcheck()
 		..()
-	else if(!occupant && !(W.flags & ABSTRACT)) //ABSTRACT to stop grabs and the like to be displayed.
+	else if(!occupant && !(W.flags & (ABSTRACT | NODROP))) //ABSTRACT to stop grabs and the like to be displayed.
 		to_chat(user, "<span class='notice'>You insert \the [W] into \the [src], and it floats as the hoverfield activates.</span>")
 		user.drop_item()
 		W.forceMove(src)
