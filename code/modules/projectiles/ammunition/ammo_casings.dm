@@ -133,7 +133,7 @@
 /obj/item/ammo_casing/shotgun/rubbershot
 	name = "rubber shot"
 	desc = "A shotgun casing filled with densely-packed rubber balls, used to incapacitate crowds from a distance."
-	icon_state = "bshell"
+	icon_state = "cshell"
 	projectile_type = /obj/item/projectile/bullet/rpellet
 	pellets = 6
 	variance = 25
@@ -267,7 +267,7 @@
 /obj/item/ammo_casing/shotgun/tranquilizer
 	name = "tranquilizer darts"
 	desc = "A tranquilizer round used to subdue individuals utilizing stimulants."
-	icon_state = "cshell"
+	icon_state = "nshell"
 	projectile_type = /obj/item/projectile/bullet/dart/syringe/tranquilizer
 	materials = list(MAT_METAL=250)
 

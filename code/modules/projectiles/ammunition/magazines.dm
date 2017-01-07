@@ -215,7 +215,7 @@
 	icon_state = "enforcer"
 	ammo_type = /obj/item/ammo_casing/rubber45
 
-/obj/item/ammo_box/magazine/m45/rubber45/update_icon()
+/obj/item/ammo_box/magazine/m45/enforcer45/update_icon()
 	..()
 	overlays.Cut()
 
@@ -223,12 +223,12 @@
 	if(ammo && is_rubber())
 		overlays += image('icons/obj/ammo.dmi', icon_state = "enforcer-r")
 
-/obj/item/ammo_box/magazine/m45/rubber45/examine(mob/user, var/distance)
+/obj/item/ammo_box/magazine/m45/enforcer45/examine(mob/user, var/distance)
 	..()
 	if(distance <= 2)
 		to_chat(user, "It seems to be loaded with [is_rubber() ? "rubber" : "lethal"] bullets.")//only can see the topmost one.
 
-/obj/item/ammo_box/magazine/m45/rubber45/proc/is_rubber()//if the topmost bullet is a rubber one
+/obj/item/ammo_box/magazine/m45/enforcer45/proc/is_rubber()//if the topmost bullet is a rubber one
 	var/ammo = ammo_count()
 	if(!ammo)
 		return 0
