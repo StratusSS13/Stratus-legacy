@@ -12,10 +12,6 @@
 	var/reskin_selectable = TRUE			//set to FALSE if a subtype is meant to not normally be available as a reskin option (fluff ones will get re-added through their list)
 	var/list/fluff_transformations = list() //does it have any special transformations only accessible to it? Should only be subtypes of /obj/item/weapon/nullrod
 
-/obj/item/weapon/nullrod/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] is killing \himself with \the [src.name]! It looks like \he's trying to get closer to god!</span>")
-	return (BRUTELOSS|FIRELOSS)
-
 /obj/item/weapon/nullrod/attack(mob/M, mob/living/carbon/user)
 	..()
 	if(M.mind)

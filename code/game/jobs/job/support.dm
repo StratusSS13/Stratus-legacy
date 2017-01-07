@@ -25,7 +25,6 @@
 		H.equip_or_collect(new /obj/item/device/pda/bar(H), slot_wear_pda)
 		H.equip_or_collect(new /obj/item/weapon/storage/belt/bandolier/full(H), slot_in_backpack)
 		H.equip_or_collect(new /obj/item/weapon/storage/box/survival(H), slot_in_backpack)
-		H.equip_or_collect(new /obj/item/toy/russian_revolver(H), slot_in_backpack)
 
 		H.dna.SetSEState(SOBERBLOCK,1)
 		H.mutations += SOBER
