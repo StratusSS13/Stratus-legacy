@@ -35,6 +35,6 @@ DECLARE_LEVEL(EMPTY_AREA, CROSSLINKED, list(REACHABLE)))
 
 #elif !defined(MAP_OVERRIDE)
 
-	#warn a map has already been included, ignoring Cyberiad.
+	#warn a map has already been included, ignoring Stratus.
 
 #endif

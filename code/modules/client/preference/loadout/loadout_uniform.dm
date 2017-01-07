@@ -89,12 +89,12 @@
 	allowed_roles = list("Head of Security", "Warden")
 
 /datum/gear/uniform/skirt/job/security
-	display_name = "skirt, officer"
+	display_name = "skirt, security"
 	path = /obj/item/clothing/under/rank/security/skirt
 	allowed_roles = list("Head of Security", "Warden", "Detective", "Security Officer")
 
 /datum/gear/uniform/skirt/job/head_of_security
-	display_name = "skirt, commander"
+	display_name = "skirt, hos"
 	path = /obj/item/clothing/under/rank/head_of_security/skirt
 	allowed_roles = list("Head of Security")
 

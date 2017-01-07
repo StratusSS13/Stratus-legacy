@@ -2,9 +2,9 @@
 var/const/ENGSEC			=(1<<0)
 
 var/const/CAPTAIN			=(1<<0)
-var/const/COMMANDER				=(1<<1)
+var/const/HOS				=(1<<1)
 var/const/WARDEN			=(1<<2)
-var/const/INVESTIGATOR			=(1<<3)
+var/const/DETECTIVE			=(1<<3)
 var/const/OFFICER			=(1<<4)
 var/const/CHIEF				=(1<<5)
 var/const/ENGINEER			=(1<<6)
@@ -179,3 +179,11 @@ var/list/whitelisted_positions = list(
 			titles = J.alt_titles
 
 	return titles
+
+var/global/list/exp_jobsmap = list(
+	EXP_TYPE_LIVING = list(), // all living mobs
+	EXP_TYPE_CREW = list(titles = command_positions | engineering_positions | medical_positions | science_positions | support_positions | supply_positions | security_positions | civilian_positions | list("AI","Cyborg") | whitelisted_positions), // crew positions
+	EXP_TYPE_SPECIAL = list(), // antags, ERT, etc
+	EXP_TYPE_GHOST = list(), // dead people, observers
+	EXP_TYPE_EXEMPT = list() // special grandfather setting
+)
