@@ -136,6 +136,7 @@
 		if(allowed)
 			chest.allowed = allowed
 		chest.slowdown = offline_slowdown
+		chest.holder = src
 		verbs |= /obj/item/weapon/rig/proc/toggle_chest
 
 	for(var/obj/item/piece in list(gloves,helmet,boots,chest))
