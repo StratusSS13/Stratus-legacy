@@ -169,6 +169,16 @@
 	base_color = "#CF4D2F"
 	butt_sprite = "vulp"
 
+	cold_level_1 = 235 //Default 260
+	cold_level_2 = 175 //Default 200
+	cold_level_3 = 95 //Default 120
+	cold_env_multiplier = 0.75
+
+	heat_level_1 = 330 //Default 360
+	heat_level_2 = 370 //Default 400
+	heat_level_3 = 430 //Default 460
+	hot_env_multiplier = 1.5
+
 	has_organ = list(
 		"heart" =    /obj/item/organ/internal/heart,
 		"lungs" =    /obj/item/organ/internal/lungs,
