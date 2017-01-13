@@ -68,7 +68,7 @@
 	return eye_blurry
 
 //Updates canmove, lying and icons. Could perhaps do with a rename but I can't think of anything to describe it.
-/mob/living/update_canmove(delay_action_updates = 0)
+/mob/living/update_canmove(delay_action_updates = 0, force_lying_update = 0)
 	var/fall_over = !can_stand()
 	var/can_crawl = can_crawl()
 	var/buckle_lying = !(buckled && !buckled.buckle_lying)
@@ -83,6 +83,11 @@
 		lying = 90 * buckle_lying
 	else if((fall_over || resting) && !lying)
 		fall(fall_over)
+	else if(can_crawl && lying && force_lying_update)//crawling direction update. God save us.
+		if(dir == EAST && lying != 90)
+			lying = 90
+		else if(dir == WEST && lying != 270)
+			lying = 270
 
 	density = !lying
 	if(lying)

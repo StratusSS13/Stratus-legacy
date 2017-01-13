@@ -546,3 +546,14 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HARM)
 			return
 
 		rename_character(oldname, newname)
+
+/mob/proc/get_footprint()//returns the typepath of the footprint/bloodt trail decal that the mob currently uses
+	if(ishuman(src))
+		var/mob/living/carbon/human/H = src
+		if(H.lying)
+			return /obj/effect/decal/cleanable/blood/tracks/trail
+		else if(H.shoes)
+			return /obj/effect/decal/cleanable/blood/tracks/footprints
+		else
+			return H.species.footprints
+	return null
