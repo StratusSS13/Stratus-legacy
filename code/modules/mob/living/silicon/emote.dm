@@ -112,7 +112,7 @@
 
 		if("scream", "screams")
 			message = "<B>[src]</B> screams!"
-			playsound(src.loc, 'sound/goonstation/voice/robot_scream.ogg', 80, 0)
+			playsound(src.loc, 'sound/misc/robo_scream2.ogg', 80, 0)
 			m_type = 2
 
 		if("buzz2")

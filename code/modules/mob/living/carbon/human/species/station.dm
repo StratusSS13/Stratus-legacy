@@ -879,8 +879,8 @@
 	virus_immune = 1
 	can_revive_by_healing = 1
 	reagent_tag = PROCESS_SYN
-	male_scream_sound = 'sound/goonstation/voice/robot_scream.ogg'
-	female_scream_sound = 'sound/goonstation/voice/robot_scream.ogg'
+	male_scream_sound = 'sound/misc/robo_scream2.ogg'
+	female_scream_sound = 'sound/misc/robo_scream2.ogg'
 	butt_sprite = "machine"
 
 	has_organ = list(
