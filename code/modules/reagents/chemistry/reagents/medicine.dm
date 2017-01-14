@@ -119,14 +119,13 @@
 /datum/reagent/medicine/rezadone
 	name = "Rezadone"
 	id = "rezadone"
-	description = "A powder derived from fish toxin, Rezadone can effectively treat genetic damage as well as restoring minor wounds. Overdose will cause intense nausea and minor toxin damage."
+	description = "A powder derived from mutadone, Rezadone can effectively treat genetic damage as well as restoring minor wounds. Overdose will cause intense nausea and minor toxin damage."
 	reagent_state = SOLID
 	color = "#669900" // rgb: 102, 153, 0
 	overdose_threshold = 30
 
 /datum/reagent/medicine/rezadone/on_mob_life(mob/living/M)
-	M.setCloneLoss(0) //Rezadone is almost never used in favor of cryoxadone. Hopefully this will change that.
-	M.adjustCloneLoss(-1) //What? We just set cloneloss to 0. Why? Simple; this is so external organs properly unmutate.
+	M.adjustCloneLoss(-5)
 	M.adjustBruteLoss(-1)
 	M.adjustFireLoss(-1)
 	M.status_flags &= ~DISFIGURED
@@ -313,8 +312,8 @@
 /datum/reagent/medicine/calomel/on_mob_life(mob/living/M)
 	for(var/datum/reagent/R in M.reagents.reagent_list)
 		if(R != src)
-			M.reagents.remove_reagent(R.id,5)
-	if(M.health > 20)
+			M.reagents.remove_reagent(R.id,10)
+	if(M.health > 20 && prob(65))
 		M.adjustToxLoss(5*REAGENTS_EFFECT_MULTIPLIER)
 	if(prob(6))
 		M.fakevomit()
@@ -330,6 +329,7 @@
 /datum/reagent/medicine/potass_iodide/on_mob_life(mob/living/M)
 	if(prob(80))
 		M.radiation = max(0, M.radiation-1)
+		M.adjustToxLoss(-1*REAGENTS_EFFECT_MULTIPLIER)
 	..()
 
 /datum/reagent/medicine/pen_acid
@@ -342,7 +342,7 @@
 /datum/reagent/medicine/pen_acid/on_mob_life(mob/living/M)
 	for(var/datum/reagent/R in M.reagents.reagent_list)
 		if(R != src)
-			M.reagents.remove_reagent(R.id,4)
+			M.reagents.remove_reagent(R.id,1.6)
 	M.radiation = max(0, M.radiation-7)
 	if(prob(75))
 		M.adjustToxLoss(-4*REAGENTS_EFFECT_MULTIPLIER)
@@ -477,7 +477,7 @@
 	reagent_state = LIQUID
 	color = "#C8A5DC"
 	overdose_threshold = 20
-	addiction_chance = 50
+	addiction_chance = 10
 	shock_reduction = 50
 
 /datum/reagent/medicine/morphine/on_mob_life(mob/living/M)
@@ -538,14 +538,16 @@
 	if(prob(4))
 		M.emote("collapse")
 	M.AdjustLoseBreath(-5, bound_lower = 5)
-	if(M.oxyloss > 65)
+	if(M.oxyloss > 65)//still kept above pass-out level, so they won't get up if they're over it
 		M.adjustOxyLoss(-10*REAGENTS_EFFECT_MULTIPLIER)
 	if(M.health < -25)
 		M.adjustToxLoss(-1)
 		M.adjustBruteLoss(-3*REAGENTS_EFFECT_MULTIPLIER)
 		M.adjustFireLoss(-3*REAGENTS_EFFECT_MULTIPLIER)
-	else if(M.health > -60)
-		M.adjustToxLoss(1)
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(H.shock_stage > 180)
+			H.shock_stage -= 10
 	M.reagents.remove_reagent("sarin", 20)
 	..()
 
@@ -610,7 +612,7 @@
 	metabolization_rate = 0.2
 
 /datum/reagent/medicine/strange_reagent/on_mob_life(mob/living/M)
-	if(prob(10))
+	if(prob(50))
 		M.adjustBruteLoss(2*REAGENTS_EFFECT_MULTIPLIER)
 		M.adjustToxLoss(2*REAGENTS_EFFECT_MULTIPLIER)
 	..()
@@ -667,7 +669,7 @@
 	M.SetJitter(0)
 	var/needs_update = M.mutations.len > 0 || M.disabilities > 0
 
-	if(needs_update)
+	if(needs_update && prob(15))
 		for(var/block=1;block<=DNA_SE_LENGTH;block++)
 			M.dna.SetSEState(block,0, 1)
 			genemutcheck(M,block,null,MUTCHK_FORCED)
@@ -768,6 +770,7 @@
 	color = "#C8A5DC"
 
 /datum/reagent/medicine/insulin/on_mob_life(mob/living/M)
+	M.jitteriness = max(0, M.jitteriness - 5)
 	M.reagents.remove_reagent("sugar", 5)
 	..()
 
@@ -949,11 +952,11 @@
 		M.AdjustConfused(-5)
 	for(var/datum/reagent/R in M.reagents.reagent_list)
 		if(R != src)
-			if(R.id == "ultralube" || R.id == "lube")
-				//Flushes lube and ultra-lube even faster than other chems
-				M.reagents.remove_reagent(R.id, 5)
+			if(R.id == "ultralube" || R.id == "lube" || R.id == "synthanol")
+				//Flushes lube, ultra-lube and pure synthanol even faster than other chems
+				M.reagents.remove_reagent(R.id, 10)
 			else
-				M.reagents.remove_reagent(R.id,1)
+				M.reagents.remove_reagent(R.id,2)
 	..()
 
 /datum/reagent/medicine/degreaser/reaction_turf(turf/simulated/T, volume)
