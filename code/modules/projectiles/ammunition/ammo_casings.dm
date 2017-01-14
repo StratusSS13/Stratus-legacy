@@ -128,7 +128,7 @@
 	icon_state = "gshell"
 	projectile_type = /obj/item/projectile/bullet/pellet
 	pellets = 6
-	variance = 25
+	variance = 15
 
 /obj/item/ammo_casing/shotgun/rubbershot
 	name = "rubber shot"
